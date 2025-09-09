@@ -108,7 +108,7 @@ session_start();
     echo "<hr>";
     echo "Available Post Graduate Diploma Applications:" . $row;
 
-    echo "<th><a href='usersdata.php'><button class='btn btn-primary' style='float:right; margin-right:40px; padding:4px;'>View Users</button></a></th>";
+    //echo "<th><a href='usersdata.php'><button class='btn btn-primary' style='float:right; margin-right:40px; padding:4px;'>View Users</button></a></th>";
     echo "<th><a href='masters.php'><button class='btn btn-primary' style='float:right; margin-right:40px; padding:4px;'>Masters</button></th>";
 
     echo "<th><a href='phd.php'><button class='btn btn-primary' style='float:right; margin-right:40px; padding:4px;'>PhD</button></a></th>";

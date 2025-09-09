@@ -11,6 +11,8 @@
               <li><a href="sciences.php">FACULTY OF SCIENCES</a></li>
               <li><a href="nursing.php">FACULTY OF NURSING SCIENCE</a></li>
               <li><a href="allliedhealth.php">FACULTY OF ALLIED HEALTH SCIENCES</a></li>
+              <li><a href="herbal.php">CENTRE FOR HERBAL MEDICINE AND DRUG DISCOVERY</a></li>
+              <li><a href="healthlaw.php">FACULTY OF HEALTH LAW AND HUMANITIES</a></li>
 			  <li><a href="medrehab.php">FACULTY OF MEDICAL REHABILITATION</a></li>
             </ul>
           

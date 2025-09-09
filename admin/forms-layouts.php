@@ -71,6 +71,9 @@ session_start();
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 
 <body>
@@ -157,7 +160,7 @@ session_start();
     echo "<th>Profile Image</th>";
    // echo "<th>Olevel1</th>";
   //  echo "<th>Olevel2</th>";
-  echo "<th>Delete Users</th>";
+  //echo "<th>Delete Users</th>";
     echo "<th>User Details</th>";
     echo "<th>Admit User </th>";
     echo "</tr>";
@@ -186,9 +189,9 @@ session_start();
       echo "<th><img src='../pass/$pro' height='100px' width='100px'></th>";
    //   echo "<th><img src='images/result/$ol1' height='100px' width='100px'></th>";
     //  echo "<th><img src='images/result/$ol2' height='100px' width='100px'></th>";
-      echo "<th><a href='delete-admin.php?del=$id'><button class='btn btn-danger'>Delete</button></th>";
-      echo "<th><a href='userdata.php?user=$id' target='_blank';><button class='btn btn-primary'>view</button></th>";
-      echo "<th><a href='update-admin.php?user=$id'><button class='btn btn-primary' style='float:right; margin-right:40px; padding:4px; '>Register </button></th>";
+     // echo "<th><a href='delete-admin.php?del=$id'><button class='btn btn-danger'>Delete</button></th>";
+      echo "<th><a href='userdata3.php?user=$id' target='_blank';><button class='btn btn-primary'>view</button></th>";
+      echo "<th><button class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#screenModal' data-regno='$id'>Register</button></th>";
       echo "</tr>"; 
     }
     echo "</table>";
@@ -230,7 +233,7 @@ session_start();
     echo "<th>Profile Image</th>";
    // echo "<th>Olevel1</th>";
   //  echo "<th>Olevel2</th>";
-  echo "<th>Delete Users</th>";
+//  echo "<th>Delete Users</th>";
     echo "<th>User Details</th>";
     echo "<th>Admit User </th>";
     echo "</tr>";
@@ -259,9 +262,9 @@ session_start();
       echo "<th><img src='../pass/$pro' height='100px' width='100px'></th>";
    //   echo "<th><img src='images/result/$ol1' height='100px' width='100px'></th>";
     //  echo "<th><img src='images/result/$ol2' height='100px' width='100px'></th>";
-      echo "<th><a href='delete-admin.php?del=$id'><button class='btn btn-danger'>Delete</button></th>";
-      echo "<th><a href='userdata.php?user=$id' target='_blank';><button class='btn btn-primary'>View </button></th>";
-      echo "<th><a href='update-admin.php?user=$id'><button class='btn btn-primary' style='float:right; margin-right:40px; padding:4px; '>Register </button></th>";
+    //  echo "<th><a href='delete-admin.php?del=$id'><button class='btn btn-danger'>Delete</button></th>";
+      echo "<th><a href='userdata3.php?user=$id' target='_blank';><button class='btn btn-primary'>View </button></th>";
+      echo "<th><button class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#screenModal' data-regno='$id'>Register</button></th>";
       echo "</tr>"; 
     }
     echo "</table>";
@@ -303,7 +306,7 @@ session_start();
     echo "<th>Profile Image</th>";
    // echo "<th>Olevel1</th>";
   //  echo "<th>Olevel2</th>";
-  echo "<th>Delete Users</th>";
+   //  echo "<th>Delete Users</th>";
     echo "<th>User Details</th>";
     echo "<th>Admit User </th>";
     echo "</tr>";
@@ -332,9 +335,9 @@ session_start();
       echo "<th><img src='../pass/$pro' height='100px' width='100px'></th>";
    //   echo "<th><img src='images/result/$ol1' height='100px' width='100px'></th>";
     //  echo "<th><img src='images/result/$ol2' height='100px' width='100px'></th>";
-      echo "<th><a href='delete-admin.php?del=$id'><button class='btn btn-danger'>Delete</button></th>";
-      echo "<th><a href='userdata.php?user=$id' target='_blank';><button class='btn btn-primary'>View</button></th>";
-      echo "<th><a href='update-admin.php?user=$id'><button class='btn btn-primary' style='float:right; margin-right:40px; padding:4px; '>Register </button></th>";
+    //  echo "<th><a href='delete-admin.php?del=$id'><button class='btn btn-danger'>Delete</button></th>";
+      echo "<th><a href='userdata3.php?user=$id' target='_blank';><button class='btn btn-primary'>View</button></th>";
+      echo "<th><button class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#screenModal' data-regno='$id'>Register</button></th>";
       echo "</tr>"; 
     }
     echo "</table>";
@@ -356,6 +359,25 @@ session_start();
 
       </div>
     </section>
+    <div class="modal fade" id="screenModal" tabindex="-1" aria-labelledby="screenModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <form method="POST" action="screen_student.php">
+        <div class="modal-header">
+          <h5 class="modal-title">Screen Candidate</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body" id="screening-content">
+          <!-- Content will be loaded via AJAX -->
+        </div>
+        <div class="modal-footer">
+        <center><button type="submit" name="screen" class="btn btn-success">Screen</button></center>  
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 
   </main><!-- End #main -->
 
@@ -369,6 +391,25 @@ session_start();
   <!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const modal = document.getElementById('screenModal');
+  modal.addEventListener('show.bs.modal', function (event) {
+    const button = event.relatedTarget;
+    const regno = button.getAttribute('data-regno');
+
+    fetch('fetch_admitted_data.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: 'regno=' + encodeURIComponent(regno)
+    })
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('screening-content').innerHTML = data;
+    });
+  });
+});
+</script>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>

@@ -1,222 +1,190 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>AVAILABLE PROGRAMMES - SCHOOL OF POSTGRADUATE::University of Medical Sciences, Ondo</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.ico" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Mamba - v4.7.0
-  * Template URL: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
-
-<body>
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="d-flex align-items-center">
-    <div class="container d-flex align-items-center">
-
-      <div class="logo me-auto">
-        <h1><a href="index.php"><img src="assets/img/unimed_banner_pgschool.png" /></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-      </div>
-
-      <?php require('nav.inc.php'); ?>
-
-    </div>
-  </header><!-- End Header -->
-
-  <main id="main">
-
-    <!-- ======= About Us Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-
-        <div class="row no-gutters" style="padding-bottom: 0px; margin-bottom: 0px;">
-          <div class="col-lg-12 d-flex flex-column justify-content-center about-content" style="padding-bottom: 0px; margin-bottom: 0px;">
-            <div class="section-title" style="padding-bottom: 0px; margin-bottom: 0px;">
-              <h3><strong> Postgraduate School, University of Medical Sciences, Ondo</strong></h3>
-			  <h4 class="title">AVAILABLE POSTGRADUATE PROGRAMMES</h4>
-            </div>
-          </div>
-		  <div class="col-lg-6 d-flex flex-column justify-content-center about-content" style="padding-top: 0px; margin-top: 0px;">
-
-            <div data-aos="fade-up" data-aos-delay="100" style="padding-bottom: 0px; margin-bottom: 0px;">
-              <p class="description" align-="justify">
-                 <h2>INSTITUTE OF ADVANCED CLINICAL SCIENCES EDUCATION</h2>
-        <strong>1. MSc in HEALTH LAW AND POLICY</strong><br />  
-    
-                        The programme is designed to:<br /> 
-                        • enhance the knowledge and competencies of health professionals, service managers and legal practitioners wishing to explore career paths pertinent to the discipline of Health Law and Policy.<br />  
-                        • enhance knowledge in the field, with emphasis on international best practice in national and global Health Law.<br /> 
-                        • nurture research and innovation in Health Law and Policy in Nigerian academia.<br />  
-
-                            Graduates of the programme will be expected to: <br /> 
-                            • have knowledge of contemporary issues and recent advances in Health Law and Policy.<br /> 
-                            • deploy this knowledge to inform the formulation, implementation and monitoring of health policy and health services delivery.<br /> 
-                            • be able to facilitate the development of legal frameworks underpinning clinicalpractice.<br />  
-
-                                The programme comprises a wide range of courses to be delivered over one calendar year.<br />
-                                Taught courses will be conducted over two semesters, then students will have 3 months to<br />
-                                work on and submit a dissertation. Hybrid instruction will be through a combination of virtual<br />
-                                and face-to-face interactions. Online teaching and learning through the University’s e-<br />
-                                learning resources will be complemented by face-to-face teaching over two weekends per<br />
-                                semester. Each student shall make two 1-hour seminar presentations.<br />
-
-             <strong>Admission requirements</strong><br />
-                        Applicants for admission into the Master’s degree programme shall possess:<br />
-                        (a) a first degree in Medicine, Dentistry, Law or any other discipline in the Health Sciences and Social Sciences (MBBS, BDS, LLB, B.Sc 2:2 or higher) or <br />
-                        (b) a registrable professional qualification and a minimum of two years’ post-qualification field experience; or<br />
-                        (c) any other qualification deemed equivalent and acceptable by the Board of the Postgraduate School and approved by the University Senate.<br />
-                   <br />
-                   <strong>2.MSc/PhD Programme in Medical Sciences, Surgical Sciences, Pathology Sciences, and Dental Sciences</strong><br />
-                   Applications are invited from suitably qualified candidates for admission into the University of Medical Sciences (UNIMED) course leading to the award of Doctor of Philosophy (PhD) degree in Clinical/Surgical/ Dental/Pathology Sciences, commencing in the 2023/24 academic year. UNIMED is a young, dynamic, and forward-looking institution specialized in the education of health sector personnel.
-<strong>About the degree programme</strong><br />
-The purpose of this programme is to produce medical scientists who are able to conduct high-level research, translate scientific discoveries into medical advances, and respond to emerging challenges in medical/dental education. 
-It is targeted at the following clinicians wishing to pursue an academic career:<br />
-1. Medical residents undergoing specialist residency training in tertiary health institutions.<br />
-2. Medical Fellows employed in tertiary health institutions as Hospital Consultants; <br />
-3. Medical Fellows who are academic staff of medical schools in their universities; they participate in teaching ad supervising undergraduate and postgraduate students;<br />
-4. Medical doctors in sub-Saharan African countries, such as in the East and Central Africa region, who wish to pursue a Doctorate programme in clinical medicine and dentistry.<br />
-The programme, conducted by the Institute of Advanced Clinical Sciences Education, has a strong focus on building research skills and also on methodology of teaching and learning in clinical medicine and dentistry, while also strengthening the base for evidence-based clinical practice. It complements the specialist training carried out by the National Postgraduate Medical College of Nigeria and the West African Postgraduate Medical College. <br />
-
-<strong>Admission requirements</strong><br />
-<strong>Applicants for admission into the programme shall possess:</strong><br />
-<strong>(a) MBBS/BDS + MSc</strong><br />
-or
-<strong>(b) MBBS/BDS + Part 1 Qualification (West African or National PG College)</strong><br />
-or
-<strong>(c) MBBS/BDS + Fellowship Qualification (West African or National PG College)</strong><br />
-In addition to the professional qualifications above, applicants must be fully registered to practice by the Medical and Dental Council of Nigeria and hold a valid annual license to practice.
-Applicants may be admitted with MBBS only, with the proviso that they must complete the MSc program in the relevant discipline in the department or complete and pass the Part I/Membership before they can proceed with the PhD work.
-The duration of the programme will be 3 years for applicants with (a) or (b) above and 2 years for those with (c). At the outset, applicants will elect to pursue either PhD by thesis or PhD by publication. Further details of the programme are available on request.
-<p>
-          
-        </p>
-        <h6>
-          <a href="pg_docs/20232024 PG ADVERT.pdf" target="_blank">&rArr;<strong>CLICK HERE FOR ADMISSION REQUIREMENTS</strong></a>
-        </h6>
-                
-          </p>
-            </div>
-          </div>
-		
-		 <!--... --><div class="col-lg-6 d-flex flex-column justify-content-center about-content" style="padding-top: 0px; margin-top: 0px;"> 
-
-            <div data-aos="fade-up" data-aos-delay="100" style="padding-bottom: 0px; margin-bottom: 0px; padding-top:0px">
-              <p class="description">
-                  
-
- <div class="col-lg-12 d-flex flex-column justify-content-center about-content" style="padding-bottom: 0px; margin-bottom: 0px;">
-            <div class="section-title" style="padding-bottom: 0px; margin-bottom: 0px;">
-              <h4><strong>ADMISSION REQUIREMENTS FOR THE PROGRAMMES  </strong></h4>
-			  <h4 class="title">AVAILABLE PROGRAMMES</h4>
-			  <p class="description">
-			     <strong>Master of Science (M.Sc.) </strong><br />
-			     An applicant for admission into the M.Sc. degree programme shall be a graduate of the University of Medical Sciences (UNIMED)
-			     Ondo, or any other approved University recognized by the UNIMED Senate, and with a minimum of Second Class (Lower Division) 
-			     in the relevant discipline. Candidates with Third Class Bachelor’s degree or HND (Upper Credit) who in addition,
-			     possess a Postgraduate diploma (PGD) with a minimum CGPA of 3.50 on a 5.00 scale in a relevant discipline may be considered.
-			     Candidates who are not UNIMED graduates may be required to satisfy the Department requirements 
-			     for admission via an interview/examination or both<br />
-			  </p>
-			  <br />
-			  <p class="description">
-<strong>Doctor of Philosophy (Ph.D.) </strong><br />
-			     Applicants for this programme should be:
-                    i.	 Holders of Master of Philosophy (M.Phil.) degree with a research thesis in any of the areas of specialization stated above.
-                    ii.	 Holders of a Master of Science (M.Sc.) degree in Biological Sciences, Chemistry, Physics and Mathematics with a minimum weighted average of 60%.
-                    iii. Candidates that are not UNIMED graduate may be required to satisfy the Department requirement for admission via an interview/examination or both.
-                    
-			  </p>
-			  <br />
-			  <p class="description">
-			     <strong>General Requirements for all UNIMED Postgraduate Programmes:</strong><br />
-			     Interested candidates shall complete the application form on the University portal and provide 
-			     all relevant documents as specified on the application form, including certificates of degrees and/or diplomas, academic transcripts,
-			     three (3) reference letters, and a 500-words statement of intent in the proposed research area.
-			     All programmes in the University require O’ Level Credit pass in English Language and Mathematics
-			     in addition to three other credits in relevant subjects. Candidates who are Nigerian citizens shall,
-			     in addition, provide the National Youth Service Corps (NYSC) discharge, exemption or exclusion certificate. 
-			     Each candidate shall request and ensure that the institution(s) attended process and forward official academic
-			     transcript(s) directly to the Dean, Postgraduate School. Only candidates whose transcripts are received will be
-			     considered for admission. 
-<br /><br />
-<strong>Duration of the Postgraduate Programmes</strong> <br /> 
-The Master’s programmes shall be for a minimum period of three (3) academic semesters (18 calendar months) and maximum of five (5) academic semesters while some others may extend to minimum of four (4) academic semesters (24 calendar months) and maximum of six (6) academic semesters while Ph.D. programmes are for a minimum of six (6) academic semesters (36 calendar months) and maximum of eight (8) academic semesters.
-<br /><br /><br />
-METHOD OF APPLICATION<br />
-Eligible candidates should log on to university website <a href="https://www.unimed.edu.ng/"  target="_blank">www.unimed.edu.ng.</a> <br /> 
-Then, take the following steps: -<br /> 
-i.	Click on Admission;<br /> 
-ii.	Click on Postgraduate School;<br />
-iii. Candiadates will be directed to  <a href="https://www.spgs.unimed.edu.ng/"  target="_blank">https://www.spgs.unimed.edu.ng/</a> <br />
-iv.	Click on Student's Portal;<br /> 
-v.	On the dropdown list ;<br /> 
-vi.	Click on PAYMENT to make payment via online payment system using VISA or MASTER card.  Note that VERVE card is not allowed.<br /> 
-vii.	After payment, print payment receipt<br /> 
-viii.	Click on STUDENT'S PORTAL, and on the dropdown list choose <a href="https://www.spgs.unimed.edu.ng/spgslogin.php" target="_blank">APPLICATION LOGIN</a>, your payment Transaction ID is your password.<br /> 
-<br />
-<p>
-					
-				</p>
-				<h6>
-					<a href="pg_docs/20232024 PG ADVERT.pdf" target="_blank">&rArr;<strong>CLICK HERE FOR ADMISSION REQUIREMENTS</strong></a>
-				</h6>
-                
-			  </p>
-<br />
-<h4>The completed forms and all documents should be submitted latest by 20th, August, 2023.</h4>
-			  </p>
-            </div>
-          </div>
-
-      </div>
-    </section><!-- End About Us Section -->
-
-  </main><!-- End #main -->
-
-  <?php require('footer.inc.php'); ?>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-</body>
-
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>AVAILABLE PROGRAMMES - SCHOOL OF POSTGRADUATE::University of Medical Sciences, Ondo</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.ico" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Mamba - v4.7.0
+  * Template URL: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo me-auto">
+        <h1><a href="index.php"><img src="assets/img/unimed_banner_pgschool.png" /></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <?php require('nav.inc.php'); ?>
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row no-gutters" style="padding-bottom: 0px; margin-bottom: 0px;">
+          <div class="col-lg-12 d-flex flex-column justify-content-center about-content" style="padding-bottom: 0px; margin-bottom: 0px;">
+            <div class="section-title" style="padding-bottom: 0px; margin-bottom: 0px;">
+              <h3><strong> Postgraduate School, University of Medical Sciences, Ondo</strong></h3>
+			  <h4 class="title">AVAILABLE POSTGRADUATE PROGRAMMES</h4>
+            </div>
+            
+            <div class="container">
+  <div class="row">
+    <!-- Left Column: Faculty of Multi-Disciplinary Studies Programmes -->
+    <div class="col-lg-6">
+      <div class="section-title">
+        <h4><strong>FACULTY OF MULTI-DISCIPLINARY STUDIES</strong></h4>
+
+        <h5><strong>a. INSTITUTE OF SPORT SCIENCE</strong></h5>
+        <p class="description">
+          • Postgraduate Diploma (PGD) in Exercise and Sports Science<br />
+          • Master of Science in Exercise and Sports Science<br />
+          • MPhil/PhD in Exercise and Sports Science
+        </p>
+
+        <h5><strong>b. INSTITUTE OF ADVANCED CLINICAL SCIENCES EDUCATION</strong></h5>
+        <p class="description">
+          <strong>PhD Programme in Clinical Sciences</strong><br />
+          • Doctor of Philosophy (PhD) in Medical Sciences<br />
+          • Doctor of Philosophy (PhD) in Dental Sciences<br />
+          • Doctor of Philosophy (PhD) in Pathology Sciences<br />
+          • Doctor of Philosophy (PhD) in Surgical Sciences
+        </p>
+      </div>
+    </div>
+
+    <!-- Right Column: General Entry Requirements + How to Apply -->
+    <div class="col-lg-6">
+      <div class="section-title">
+        <h4><strong>GENERAL ENTRY REQUIREMENTS FOR ALL UNIMED POSTGRADUATE PROGRAMMES</strong></h4>
+        <p class="description">
+          A candidate must have O’ Level Credit passes in English Language and Mathematics, plus three other relevant subjects in WAEC, NECO, GCE or equivalent.
+        </p>
+
+        <p class="description">
+          <strong>a. Postgraduate Diploma (PGD)</strong><br />
+          • Graduates of UNIMED or other recognized universities in relevant areas.<br />
+          • HND holders with a minimum of Lower Credit in relevant disciplines.
+        </p>
+
+        <p class="description">
+          <strong>b. Master’s Degree</strong><br />
+          • Bachelor’s Degree with at least Second Class Honours in relevant fields.<br />
+          • Third-Class or HND holders with PGD (minimum CGPA of 3.50 or Upper Credit).<br />
+          • PGD/PGDE holders must also meet basic O’ Level entry requirements.
+        </p>
+
+        <p class="description">
+          <strong>c. Doctor of Philosophy (PhD)</strong><br />
+          • Master’s Degree with a minimum weighted average of 60% from a recognized university.
+        </p>
+
+        <p class="description">
+          <strong>Additional Requirements:</strong><br />
+          • Completed application form<br />
+          • Degree/Diploma certificates<br />
+          • Academic transcripts<br />
+          • Three reference letters<br />
+          • 500-word statement of intent<br />
+          • NYSC certificate (for Nigerian citizens)<br />
+          • Transcripts must be sent directly to the Secretary, Postgraduate School via post and email: <strong>secpgs@unimed.edu.ng</strong><br />
+          • Include your email and phone number when applying.
+        </p>
+
+        <h4><strong>METHOD OF APPLICATION</strong></h4>
+        <p class="description">
+          Eligible candidates should log on to the University website: 
+          <a href="https://www.unimed.edu.ng/" target="_blank">www.unimed.edu.ng</a><br /><br />
+          Then, take the following steps:
+        </p>
+        <ol style="padding-left: 20px;">
+          <li>Click on <strong>Admission</strong></li>
+          <li>Click on <strong>Postgraduate School</strong></li>
+          <li>Candidates will be directed to 
+            <a href="https://www.spgs.unimed.edu.ng/" target="_blank">https://www.spgs.unimed.edu.ng/</a>
+          </li>
+          <li>Click on <strong>Student's Portal</strong></li>
+          <li>Click on <strong>PAYMENT</strong> and pay using <strong>VISA</strong> or <strong>MASTER</strong> card (Note: VERVE card is not allowed)</li>
+          <li>Print your payment receipt</li>
+          <li>Click on <strong>APPLICATION LOGIN</strong> via 
+            <a href="https://www.spgs.unimed.edu.ng/spgslogin.php" target="_blank">SPGS Portal</a> using your Transaction ID as password
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Row: Submission Deadline -->
+  <div class="row">
+    <div class="col-lg-12 text-center" style="margin-top: 30px;">
+      <h4><strong>The completed forms and all documents should be submitted latest by 30th September, 2025.</strong></h4>
+      <h6>
+        <a href="pg_docs/unimed_advert.pdf" target="_blank">&rArr; <strong>CLICK HERE TO DOWNLOAD THE FULL ADVERT</strong></a>
+      </h6>
+      <iframe src="pg_docs/unimed_advert.pdf" width="100%" height="600px" style="border: 1px solid #ccc; margin-top: 20px;"></iframe>
+    </div>
+  </div>
+</div>
+
+          </div>
+		</div>
+		</div>
+    </section><!-- End About Us Section -->
+
+  </main><!-- End #main -->
+
+  <?php require('footer.inc.php'); ?>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
 </html>

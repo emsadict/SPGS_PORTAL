@@ -2,6 +2,7 @@
 include("includes/header.php");
 include("includes/config.php");
 include("includes/functions.php");
+    include_once("../fun.inc.php");
 $msg=$name=$sex=$dob=$maritalstatus=$nationality=$state=$lg=$mail=$phoneno=$address=$image=$faculty=$dept=$programme=$title=$noksurname=$nokoname=$nokemail=$first_no=$first_date=$first_type=$first_sub1=$last=$first_sub2=$first_sub3=$first_sub4=$first_sub5=$first_sub6=$first_sub7=$first_sub8=$first_sub9=$sec_no=$sec_date=$sec_type=$second_sub1=$second_sub2=$second_sub3=$second_sub4=$second_sub5=$second_sub6=$second_sub7=$second_sub8=$second_sub9=$olevel1=$olevel2=$dedeg2=$dedeg3=$dedeg4=$dedeg5=$dedeg7=$cert1=$cert2=$nysc1=$nysc2=$nysc3
 ='';
 $result=mysqli_query($con, " SELECT * FROM applicants ORDER BY regno DESC  "); 

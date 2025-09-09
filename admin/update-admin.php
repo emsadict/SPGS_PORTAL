@@ -83,8 +83,38 @@ if (isset($id)) {
 
         
 }
-          
+    //move records to admission table
+    
+if (isset($_POST['submit_admission'])) {
+    $regno = $_POST['regno'];
+    $surname = $_POST['surname'];
+    $onames = $_POST['onames'];
+    $sex = $_POST['sex'];
+    $dob = $_POST['dob'];
+    $faculty = $_POST['faculty'];
+    $dept = $_POST['dept'];
+    $programme = $_POST['programme'];
+    $title = $_POST['title'];
+    // Add other fields as needed
 
+    $session = date('Y'); // or fetch from another source
+    $batch = 'Batch A';   // example value
+    $date_issued = date('Y-m-d');
+
+    $sql = "INSERT INTO admitted_2022 
+        (regno, surname, onames, sex, dob, faculty, dept, programme, title, session, batch, date_issued) 
+        VALUES 
+        ('$regno', '$surname', '$onames', '$sex', '$dob', '$faculty', '$dept', '$programme', '$title', '$session', '$batch', '$date_issued')";
+
+    $result = mysqli_query($conn, $sql);
+
+    if ($result) {
+        echo "<script>alert('Student admitted successfully'); window.location.href='dashboard.php';</script>";
+    } else {
+        echo "<script>alert('Admission failed');</script>";
+    }
+      
+  }
 ?>
 <title>Profile Page</title>
 <style type="text/css">
@@ -142,6 +172,28 @@ img{
 </style>
 
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+$(document).ready(function() {
+  $('#faculty').change(function() {
+    var school = $(this).val();
+    $.ajax({
+      url: 'fetch_dept.php',
+      method: 'POST',
+      data: { school: school },
+      success: function(data) {
+        $('#dept').html(data);
+      },
+      error: function() {
+        alert('Failed to fetch departments. Please try again.');
+      }
+    });
+  });
+});
+</script>
 
 </head>
 <body id='body-bg'>
@@ -161,6 +213,18 @@ img{
   <a><button onclick="window.print()" class='btn btn-outline-success' style='float: right;margin-top:5px; padding-right: 10px; margin-left: 5px;'>Print Page</button></a> -->
 </div>
 
+<div id="printable_div_nysc" class='container text-success' style='background-color:white; margin-top:50px; margin-bottom: 20px;width: 1000px;height: 120px;margin-left: 400px;'>
+<center><h3 style="align-items-center">ADMIT THE STUDENT:</h3></center> <br>
+
+<form method="POST" action="">
+  <input type="hidden" name="admit_trigger" value="1">
+<center>  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#admitModal">
+  ADMIT
+</button></center>
+
+</form>
+
+</div>
   <div id="printable_div_datapage" class='container text-primary' style='background-color:white; margin-top:20px; margin-bottom: 20px;width: 1000px;height: 1800px; margin-left: 400px;'>
 
 <a href='components-alerts.php'><button class='btn btn-outline-warning' style='float: right;margin-top:20px; padding-right: 10px; margin-left: 5px;'>Back</button></a>
@@ -500,12 +564,160 @@ function printdiv(elem) {
 </div>
 <br>
 
-<div id="printable_div_nysc" class='container text-success' style='background-color:white; margin-top:50px; margin-bottom: 20px;width: 1000px;height: 150px;margin-left: 400px;'>
-<center><h3 style="align-items-center">ADMIT THE STUDENT:</h3></center> <br>
 
-<center><button class="btn btn-success"  >ADMIT</button></center>
+<?php
+if (isset($_POST['admit_trigger'])) {
+?>
+<form method="POST" action="admit_student.php">
+  <table class="table-bordered" style="width:80px; margin-top:20px;">
+    <tr><th colspan="2">Admit Student Form</th></tr>
+    <tr><td>Reg No:</td><td><input type="text" name="regno" value="<?php echo $id; ?>" readonly></td></tr>
+    <tr><td>Surname:</td><td><input type="text" name="surname" value="<?php echo $name; ?>" readonly></td></tr>
+    <tr><td>Other Names:</td><td><input type="text" name="onames" value="<?php echo $last; ?>" readonly></td></tr>
+    <tr><td>Sex:</td><td><input type="text" name="sex" value="<?php echo $sex; ?>" readonly></td></tr>
+    <tr><td>DOB:</td><td><input type="text" name="dob" value="<?php echo $dob; ?>" readonly></td></tr>
+    <tr><td>Faculty:</td><td><input type="text" name="faculty" value="<?php echo $faculty; ?>"></td></tr>
+    <tr><td>Dept:</td><td><input type="text" name="dept" value="<?php echo $dept; ?>"></td></tr>
+    <tr><td>Programme:</td><td><input type="text" name="programme" value="<?php echo $programme; ?>"></td></tr>
+    <tr><td>Title:</td><td><input type="text" name="title" value="<?php echo $title; ?>"></td></tr>
+    <!-- Add other fields as needed -->
+    <tr><td colspan="2" style="text-align:center;"><button type="submit" name="submit_admission" class="btn btn-primary">Submit Admission</button></td></tr>
+  </table>
+</form>
+<?php } ?>
 
 </div>
+<!-- Modal -->
+<div class="modal fade" id="admitModal" tabindex="-1" aria-labelledby="admitModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <form method="POST" action="admit_student.php">
+        <div class="modal-header">
+          <h5 class="modal-title">Admit Student</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="row g-3">
+            <!-- Static Fields from basicinfo -->
+            <input type="hidden" name="regno" value="<?php echo $id; ?>">
+            <?php
+              $fields = [
+                'surname' => $name, 'onames' => $last, 'sex' => $sex, 'dob' => $dob,
+                'maritalstatus' => $maritalstatus, 'nationality' => $nationality,
+                'state' => $state, 'lg' => $lg, 'email' => $mail, 'phoneno' => $phoneno,
+                'address' => $address, 'passport' => $image, 'noksurname' => $noksurname,
+                'nokoname' => $nokoname, 'noktel' => $noktel, 'nokemail' => $nokemail
+              ];
+              foreach ($fields as $key => $value) {
+                echo "<div class='col-md-6'><label>".ucfirst($key)."</label><input type='text' name='$key' class='form-control' value='$value' readonly></div>";
+              }
+            ?>
+
+            <!-- Dynamic Faculty Dropdown -->
+            <div class="col-md-6">
+              <label>Faculty (School)</label>
+              <select name="faculty" id="faculty" class="form-control" required>
+                <option value="">Select Faculty</option>
+                <?php
+                  $faculties = resultnew("SELECT DISTINCT school FROM course");
+                  while ($row = mysqli_fetch_array($faculties)) {
+                    echo "<option value='{$row['school']}'>{$row['school']}</option>";
+                  }
+                ?>
+              </select>
+            </div>
+
+            <!-- Dynamic Department Dropdown -->
+            <div class="col-md-6">
+              <label>Department</label>
+              <select name="dept" id="dept" class="form-control" required>
+                <option value="">Select Department</option>
+              </select>
+            </div>
+
+            <!-- Programme -->
+            <div class="col-md-6">
+              <label>Programme</label>
+              <select name="programme" class="form-control" required>
+                <option>Postgraduate Diploma</option>
+                <option>Masters</option>
+                <option>Doctorate</option>
+                <option>MPhil/PhD</option>
+              </select>
+            </div>
+
+            <!-- Title -->
+            <div class="col-md-6">
+              <label>Title</label>
+              <select name="title" class="form-control" required>
+                <option>PGD</option>
+                <option>MSc</option>
+                <option>MPH</option>
+                <option>PhD</option>
+                <option>MPhil</option>
+                <option>MPhil/PhD</option>
+                <option>DrPH</option>
+              </select>
+            </div>
+
+            <!-- Batch -->
+            <div class="col-md-6">
+              <label>Batch</label>
+              <select name="batch" class="form-control" required>
+                <option>FIRST</option>
+                <option>SECOND</option>
+                <option>THIRD</option>
+                <option>FOURTH</option>
+                <option>SUPPL</option>
+              </select>
+            </div>
+
+            <!-- Dates -->
+            <div class="col-md-6"><label>Acceptance Fee Due</label><input type="date" name="accpt_fee_due" class="form-control" required></div>
+            <div class="col-md-6"><label>Student Due Date</label><input type="date" name="stud_due_date" class="form-control" required></div>
+            <div class="col-md-6"><label>Date Issued</label><input type="date" name="date_issued" class="form-control" required></div>
+            <div class="col-md-6"><label>All Payment Due</label><input type="date" name="all_pay_due" class="form-control" required></div>
+
+            <!-- Programme Duration -->
+            <div class="col-md-6">
+              <label>Programme Duration</label>
+              <select name="prog_duration" class="form-control" required>
+                <option>Three Academic Session</option>
+                <option>Three Academic Semesters</option>
+                <option>One Academic Semester</option>
+              </select>
+            </div>
+
+            <!-- NOK Relationship & Address -->
+            <div class="col-md-6"><label>NOK Relationship</label><input type="text" name="nokrel" class="form-control"></div>
+            <div class="col-md-6"><label>NOK Address</label><input type="text" name="nokadd" class="form-control"></div>
+
+            <!-- Admission Letter Upload -->
+            <div class="col-md-6">
+  <label>Session</label>
+  <select name="session" class="form-control" required>
+    <option value="">Select Session</option>
+    <option value="2025/2026">2025/2026</option>
+   <!--  <option value="2024/2025">2024/2025</option>
+    <option value="2023/2024">2023/2024</option>
+    <option value="2022/2023">2022/2023</option> -->
+  </select>
+</div>
+
+            <!-- Reference Date -->
+            <div class="col-md-6"><label>Reference Date</label><input type="date" name="refD" class="form-control"></div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" name="submit_admission" class="btn btn-primary">Submit Admission</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <?php include_once("footer.php"); ?>
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -522,6 +734,7 @@ function printdiv(elem) {
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
 </div>
 </body>
 </html>

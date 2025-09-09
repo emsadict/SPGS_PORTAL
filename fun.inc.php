@@ -29,13 +29,26 @@ function resultnew($query){
 
 }
 
+function resultWordPress($query){
+    $conn = mysqli_connect("localhost", "spgsportal_wordpress", "spgsportal@2025", "spgsportal_wordpress");
+
+    if (mysqli_connect_errno()){
+        echo "Failed to connect to WordPress DB: " . mysqli_connect_error();
+    }
+
+    if (!$result = mysqli_query($conn, $query)){
+        return mysqli_error($conn);
+    } else {
+        return $result;
+    }
+}
 
 
 function payconnect($query){
 
 	//Access to paymentinvoice table on centraldb
 
-//	$conn=mysqli_connect("localhost","unimed5_spgs","pay@UN1M3D","unimed5_unimedportaldb");
+	$conn=mysqli_connect("localhost","unimed5_spgs","pay@UN1M3D","unimed5_unimedportaldb");
 
 	if (mysqli_connect_errno()){
 
@@ -296,7 +309,7 @@ function listPUnits($level,$semester,$matricno,$sess){
 
 
 
-function extraUnit($dept,$level,$semester,$matno,$sess,$un,$stype="REGULAR"){
+function extraUnit($dept,$level,$semester,$matno,$sess,$un,$stype="PG"){
 
 	$funit=semunit($dept,$level,"FIRST",$matno,$stype);
 
@@ -472,7 +485,7 @@ function listPCourses($level,$semester,$matricno){
 
 
 
-function listCoursesNew($dept,$level,$semester,$matno,$utyp=1,$stype="REGULAR"){
+function listCoursesNew($dept,$level,$semester,$matno,$utyp=1,$stype="PG"){
 
 
 
@@ -519,9 +532,9 @@ function listCoursesNew($dept,$level,$semester,$matno,$utyp=1,$stype="REGULAR"){
 
 
 
-			if($stype=="REGULAR"){
+			if($stype=="PG"){
 
-				$sql=resultnew("SELECT courseTitle,credit,cat FROM course WHERE courseCode='$k' AND semester='$semester' AND (dept='$dept' || dept='ALL') AND stype='REGULAR'");
+				$sql=resultnew("SELECT courseTitle,credit,cat FROM course WHERE courseCode='$k' AND semester='$semester' AND (dept='$dept' || dept='ALL') AND stype='PG'");
 
 			}elseif($stype=="DIPLOMA"){
 
@@ -607,9 +620,9 @@ function listCoursesNew($dept,$level,$semester,$matno,$utyp=1,$stype="REGULAR"){
 
 	
 
-	if($stype=="REGULAR"){
+	if($stype=="PG"){
 
-		$sql1=resultnew("SELECT * FROM course WHERE semester='$semester' AND level<=$level AND (dept='$dept' || dept='ALL') AND stype='REGULAR' ORDER BY level DESC, courseCode ASC");
+		$sql1=resultnew("SELECT * FROM course WHERE semester='$semester' AND level<=$level AND (dept='$dept' || dept='ALL') AND stype='PG' ORDER BY level DESC, courseCode ASC");
 
 	}elseif($stype=="DIPLOMA"){
 
@@ -665,7 +678,7 @@ function listCoursesNew($dept,$level,$semester,$matno,$utyp=1,$stype="REGULAR"){
 
 
 
-function listCoursesNewUp($dept,$level,$semester,$matricno,$session,$utyp,$stype="REGULAR"){
+function listCoursesNewUp($dept,$level,$semester,$matricno,$session,$utyp,$stype="PG"){
 
 
 
@@ -811,9 +824,9 @@ function listCoursesNewUp($dept,$level,$semester,$matricno,$session,$utyp,$stype
 
 
 
-			if($stype=="REGULAR"){
+			if($stype=="PG"){
 
-				$sql=resultnew("SELECT courseTitle,credit,cat FROM course WHERE courseCode='$k' AND semester='$semester' AND (dept='$dept' || dept='ALL') AND stype='REGULAR' ORDER BY id DESC LIMIT 0,1");
+				$sql=resultnew("SELECT courseTitle,credit,cat FROM course WHERE courseCode='$k' AND semester='$semester' AND (dept='$dept' || dept='ALL') AND stype='PG' ORDER BY id DESC LIMIT 0,1");
 
 			}elseif($stype=="DIPLOMA"){
 
@@ -887,9 +900,9 @@ function listCoursesNewUp($dept,$level,$semester,$matricno,$session,$utyp,$stype
 
 
 
-	if($stype=="REGULAR"){
+	if($stype=="PG"){
 
-		$sql1=resultnew("SELECT * FROM course WHERE semester='$semester' AND level<=$level AND (dept='$dept' || dept='ALL') AND stype='REGULAR' ORDER BY level DESC, courseCode ASC");
+		$sql1=resultnew("SELECT * FROM course WHERE semester='$semester' AND level<=$level AND (dept='$dept' || dept='ALL') AND stype='PG' ORDER BY level DESC, courseCode ASC");
 
 	}elseif($stype=="DIPLOMA"){
 

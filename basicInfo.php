@@ -2,7 +2,7 @@
 	session_start();
 //	ini_set('display_errors', 1);
 //	ini_set('display_startup_errors', 1);
-	error_reporting(0);
+//	error_reporting(0);
 	include_once("fun.inc.php");
 	use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\SMTP;
@@ -20,7 +20,9 @@
 		$spgs_auth=$_SESSION['spgs_auth'];
 		$user=$spgs_auth[1];
 	}	$cal = getCalendarInfo();
-	//	$retinv=retInvoiceP($user,"UNIMED SPGS APPLICATION FEE",$cal[1]);
+		$retinv=retInvoiceP($user,"UNIMED SPGS APPLICATION FEE",$cal[1]);
+		$usersession=$retinv[9];
+		//echo=$usersession;
 		$rec1=getRecs("spgs_basicinfo","regno",$user);
 		if(searchRecord("spgs_basicinfo","regno",$user)!=0){
 			$prog=$rec1['programme'];
@@ -83,7 +85,8 @@ if(isset($_REQUEST['update'])){
 			$pix_id=$_REQUEST["passport2"];
 		}
 		$regno=$_REQUEST['regno'];
-		$basic=array($regno,$_REQUEST['surname'],$_REQUEST['onames'],$_REQUEST['sex'],$_REQUEST['dob'],$_REQUEST['maritalstatus'],$_REQUEST['nation'],$state,$lg,$_REQUEST["email"],$_REQUEST["phone"],addslashes($_REQUEST["address"]),$pix_id,$mpfaculty,$_REQUEST['dept'],$_REQUEST['programme'],$_REQUEST['title'],$_REQUEST["noksurname"],$_REQUEST["nokoname"],$_REQUEST["noktel"],$_REQUEST["nokemail"]);
+		$sessionapplied="2025/2026";
+		$basic=array($regno,$_REQUEST['surname'],$_REQUEST['onames'],$_REQUEST['sex'],$_REQUEST['dob'],$_REQUEST['maritalstatus'],$_REQUEST['nation'],$state,$lg,$_REQUEST["email"],$_REQUEST["phone"],addslashes($_REQUEST["address"]),$pix_id,$mpfaculty,$_REQUEST['dept'],$_REQUEST['programme'],$_REQUEST['title'],$_REQUEST["noksurname"],$_REQUEST["nokoname"],$_REQUEST["noktel"],$_REQUEST["nokemail"],$sessionapplied);
 		//echo $sql;
 		
 			if(input2($basic,"spgs_basicinfo")){
@@ -91,7 +94,7 @@ if(isset($_REQUEST['update'])){
 				$refno=0;
 				$candname=$_REQUEST['surname']." ".$_REQUEST['onames'];
 				$date = date('Y-m-d');
-				$deadline = date('Y-m-d', strtotime($date.' + 7 days'));
+				$deadline = date('Y-m-d', strtotime($date.' + 15 days'));
 				$format_deadline = date("D, d M Y", strtotime($deadline));
 				for($i=0;$i<count($_REQUEST['refname']);$i++){
 					$refno+=1;
@@ -470,9 +473,92 @@ $("#suggesstion-box").hide();
          echo '<div class="text-center"><button class="btn btn-success" type="submit" name="update">Admission Status: Congratulations! You Have been offerred Admission into The '.$programme.'('.($brec["title"]).') Programme </button></div> <br/>';
 
          }
-   
 ?>
+
+<?php
+$regno = $user;
+$completed = 0;
+
+// --- 1. Biodata Check ---
+$basicinfo = getRecs("spgs_basicinfo", "regno", $regno);
+if ($basicinfo === 0) {
+    echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+        <strong>⚠️ Biodata form not submitted.</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>";
+} else {
+    $requiredFields = ['faculty', 'dept', 'programme', 'title', 'email', 'phoneno'];
+    $allFilled = true;
+
+    foreach ($requiredFields as $field) {
+        if (empty($basicinfo[$field])) {
+            $allFilled = false;
+            break;
+        }
+    }
+
+    if ($allFilled) {
+        echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+            <strong>✅ You have completed your Biodata form.</strong>
+            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+        </div>";
+        $completed++;
+    } else {
+        echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
+            <strong>⚠️ Please fill all required Biodata fields: Faculty, Department, Programme, Programme Type, Email, and Phone.</strong>
+            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+        </div>";
+    }
+}
+
+// --- 2. Academic Records Check ---
+$acadinfo = getRecs("spgs_acad_rec", "regno", $regno);
+if ($acadinfo === 0) {
+    echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+        <strong>⚠️ Academic records not uploaded.</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>";
+} else {
+    echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+        <strong>✅ Academic record form completed.</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>";
+    $completed++;
+}
+
+// --- 3. Referee Form Check Only ---
+$referees = getRecs("spgs_referees", "regno", $regno);
+if ($referees === 0) {
+    echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+        <strong>⚠️ Referee form not submitted.</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>";
+} else {
+    echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+        <strong>✅ Referee form completed.</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>";
+    $completed++;
+}
+
+// --- Overall Completion Status ---
+$percentage = ($completed / 3) * 100;
+echo "<div class='mt-4'>
+    <p><strong>🔍 Overall Status: $completed out of 3 forms completed</strong></p>
+    <div class='progress'>
+        <div class='progress-bar progress-bar-striped bg-success' role='progressbar' style='width: {$percentage}%;' aria-valuenow='{$percentage}' aria-valuemin='0' aria-valuemax='100'>
+            {$percentage}%
+        </div>
+    </div>
+</div>";
+
+?>
+
         <div class="row">
+
+
+
+
           <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data" method="post" name="formcheck" onsubmit="return formCheck(this);" role="form" class="php-email-form">
 			<?php
@@ -575,7 +661,7 @@ $("#suggesstion-box").hide();
           </div>
 				<div class="row">
 				<div class="form-group">
-					<label for="passport">PASSPORT.:</label>
+					<label for="passport">PASSPORT.:<div class="form-group" style="text-align: center; font-weight: bold; font-style: italic; color: #F00;">(Make sure passport size is less than 25kb [JPEG, PNG, JPG])</div></label>
 					<input type="hidden"  name="passport2" value="'.$rec['passport'].'"  />
 					<img id="imagePreview" src="#" alt="Image Preview">
 
