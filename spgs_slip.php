@@ -17,30 +17,8 @@
 	//if($srec==0){
 		//pUTMESchedule($user,$brec[15]);
 	//}
-define('IN_CB', true);
-if (version_compare(phpversion(), '5.0.0', '>=') !== true) {
-    exit('Sorry, but you have to run this script with PHP5... You currently have the version <b>' . phpversion() . '</b>.');
-}
 
-/*
-if (!function_exists('imagecreate')) {
-    exit('Sorry, make sure you have the GD extension installed before running this script.');
-}
-*/
-include_once('include/function.php');
 
-// FileName & Extension
-$system_temp_array = explode('/', $_SERVER['PHP_SELF']);
-$filename = $system_temp_array[count($system_temp_array) - 1];
-$system_temp_array2 = explode('.', $filename);
-$availableBarcodes = listBarcodes();
-$barcodeName = findValueFromKey($availableBarcodes, $filename);
-$code = $system_temp_array2[0];
-
-// Check if the code is valid
-if (file_exists('config' . DIRECTORY_SEPARATOR . $code . '.php')) {
-    include_once('config' . DIRECTORY_SEPARATOR . $code . '.php');
-}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -63,7 +41,7 @@ if (file_exists('config' . DIRECTORY_SEPARATOR . $code . '.php')) {
 }
 
 </style>
-<title>2023/2024 SCHOOL OF POSTGRADUATE STUDIES: <?php echo $user; ?></title>
+<title>2025/2026 SCHOOL OF POSTGRADUATE STUDIES: <?php echo $user; ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link type="text/css" rel="stylesheet" href="include/style.css" />
         <link rel="shortcut icon" href="favicon.ico" />
@@ -72,59 +50,10 @@ if (file_exists('config' . DIRECTORY_SEPARATOR . $code . '.php')) {
 </head>
 
 <body bgcolor="#ffffff" class="<?php echo $code; ?>">
-<?php
-$default_value = array();
-$default_value['filetype'] = 'PNG';
-$default_value['dpi'] = 300;
-$default_value['scale'] = isset($defaultScale) ? $defaultScale : 1;
-$default_value['rotation'] = 0;
-$default_value['font_family'] = 'Arial.ttf';
-$default_value['font_size'] = 10;
-$default_value['text'] = strtoupper($brec[1]);
-$default_value['a1'] = '';
-$default_value['a2'] = '';
-$default_value['a3'] = '';
-
-$filetype = $default_value['filetype'];
-$dpi = $default_value['dpi'];
-$scale = $default_value['scale'];
-$rotation = $default_value['rotation'];
-$font_family = $default_value['font_family'];
-$font_size = $default_value['font_size'];
-$text = isset($_POST['text']) ? $_POST['text'] : $default_value['text'];
-
-registerImageKey('filetype', $filetype);
-registerImageKey('dpi', $dpi);
-registerImageKey('scale', $scale);
-registerImageKey('rotation', $rotation);
-registerImageKey('font_family', $font_family);
-registerImageKey('font_size', $font_size);
-registerImageKey('text', stripslashes($text));
-
-// Text in form is different than text sent to the image
-$text = convertText($text);
-?>
 
 <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
     
-<?php
-//define('IN_CB', true);
-//include('include/header.php');
 
-$default_value['checksum'] = '';
-$checksum = isset($_POST['checksum']) ? $_POST['checksum'] : $default_value['checksum'];
-registerImageKey('checksum', $checksum);
-registerImageKey('code', 'BCGcode39');
-
-$characters = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '-', '.', '&nbsp;', '$', '/', '+', '%');
-?>
-
-<?php
-//include('include/footer.php');
-?>
-<?php
-if (!defined('IN_CB')) { die('You are not allowed to access to this page.'); }
-?>
 
 <div id="waterMark"><img src="images/bglogo.jpg" width="400" height="553"></div>
 
@@ -145,7 +74,7 @@ if (!defined('IN_CB')) { die('You are not allowed to access to this page.'); }
 				<span style="font-size:17px;font-weight:bold;">ONDO, NIGERIA </span><br /><br />
 					<img src="images/logo.jpg" width="100" align="bottom"/><br />
 					<br />
-						<p style="font-size:14px;font-weight:bold; padding-top:10px;">2024/2025 APPLICATION SLIP</p><br />
+						<p style="font-size:14px;font-weight:bold; padding-top:10px;">2025/2026 APPLICATION SLIP</p><br />
 			</td>
 		</tr>';
 	/*$date=date('Y-m-d');
@@ -439,7 +368,7 @@ echo '<tr style="align:center;" align="center" colspan="4">
 							echo '<tr>			 
 								<td align="center" width="100%" colspan="5" style="padding:2px 0px; font-weight:bold; font-size:11px;">
 
-								<span style="font-style:italic;">Kindly Submit a copy each of your credentials with this Application Slip ecnclosed in a brown file to The Postgraduate School, Odosida Campus,  University of Medical Sciences, Ondo. <br>Also ensure your official Transcript is sent to The Postgraduate School,  </span></td>
+								<span style="font-style:italic;">Kindly Submit Two(2) copies each of your credentials with this Application Slip ecnclosed in a brown file to The Postgraduate School, Odosida Campus,  University of Medical Sciences, Ondo. <br>Also ensure your official Transcript is sent to The Postgraduate School,  </span></td>
 							</tr>';
 							echo '<tr>			 
 								<td align="center" width="100%" colspan="5" style="padding:2px 0px; font-weight:bold; font-size:11px;">
@@ -457,18 +386,9 @@ echo '<tr style="align:center;" align="center" colspan="4">
 								<td align="center" width="100%" colspan="5" style="padding:8px 0px 2px 0px; font-weight:bold; font-size:11px;">
 								<div class="output">
 								<section class="output">
-									<?php
-										$finalRequest = '';
-										foreach (getImageKeys() as $key => $value) {
-											$finalRequest .= '&' . $key . '=' . urlencode($value);
-										}
-										if (strlen($finalRequest) > 0) {
-											$finalRequest[0] = '?';
-										}
-									?>
+									
 									<div id="imageOutput">
-										<?php if ($imageKeys['text'] !== '') { ?><img src="image.php<?php echo $finalRequest; ?>" alt="Barcode Image" /><?php }
-										else { ?>Barcode Image.<?php } ?>
+										
 									</div>
 								</section>
 							</div>

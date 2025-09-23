@@ -15,13 +15,13 @@
     $adminrec=getRecs("admin_table","username",$user);
    $role = $adminrec['role'];
     
-    $result = resultnew( "SELECT * FROM screened_candidates_2022 WHERE session='2023/2024' ORDER BY `faculty`,`dept` ");
+    $result = resultnew( "SELECT * FROM Screened_Candidates_2022 WHERE session='2023/2024' ORDER BY `faculty`,`dept` ");
     $row = mysqli_num_rows($result);
   //  echo "Total Registered Users:" . $row;
   }
 ?>
 <?php 
-$result1 = resultnew( "SELECT `programme` as programmes, COUNT(programme) AS frequency  FROM `screened_candidates_2022` WHERE session='2023/2024' GROUP BY `programme` ");
+$result1 = resultnew( "SELECT `programme` as programmes, COUNT(programme) AS frequency  FROM `Screened_Candidates_2022` WHERE session='2023/2024' GROUP BY `programme` ");
     //$row = mysqli_query($result);
 
     foreach ($result1 as $data) {

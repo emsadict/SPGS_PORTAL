@@ -64,7 +64,7 @@
                     <div class="ps-3">
                       <h6><?php 
 
-                        $masters = resultnew( "SELECT * FROM screened_candidates_2022 WHERE programme='Masters'");
+                        $masters = resultnew( "SELECT * FROM Screened_Candidates_2022 WHERE programme='Masters'");
                         $msc = mysqli_num_rows($masters);
                         echo "Total:<br/>" . $msc;     
                            ?>
@@ -106,7 +106,7 @@
                     <div class="ps-2">
                       <h6><?php 
 
-                        $doctorate = resultnew( "SELECT * FROM screened_candidates_2022 WHERE programme='Postgraduate Diploma'");
+                        $doctorate = resultnew( "SELECT * FROM Screened_Candidates_2022 WHERE programme='Postgraduate Diploma'");
                         $doctorate = mysqli_num_rows($doctorate);
                         echo "Total:<br/>" . $doctorate;      
                            ?></h6>
@@ -151,7 +151,7 @@
                     <div class="ps-2">
                       <h6><?php 
 
-                        $doctorate = resultnew( "SELECT * FROM screened_candidates_2022 WHERE programme='Doctorate'");
+                        $doctorate = resultnew( "SELECT * FROM Screened_Candidates_2022 WHERE programme='Doctorate'");
                         $doctorate = mysqli_num_rows($doctorate);
                         echo "Total:<br/>" . $doctorate;      
                            ?></h6>

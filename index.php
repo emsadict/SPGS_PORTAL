@@ -110,6 +110,7 @@
                 <h2 class="animate__animated animate__fadeInDown">Welcome to <span> POSTGRADUATE SCHOOL</span></h2>
                 <p class="animate__animated animate__fadeInUp">University of Medical Sciences, Ondo City, Ondo State</p>
                 <a class="btn btn-primary" href="https://www.unimed.edu.ng/portal/payment_spgs_app.php">APPLY HERE</a>
+                <a class="btn btn-info" href="https://spgs.unimed.edu.ng/spgslogin.php">APPLICATION LOGIN</a>
                 <a class="btn btn-success" href="https://spgs.unimed.edu.ng/portal_login.php">STUDENT LOGIN</a>
               </div>
             </div>
@@ -121,6 +122,7 @@
                 <h2 class="animate__animated animate__fadeInDown">Welcome to <span>POSTGRADUATE SCHOOL</span></h2>
                 <p class="animate__animated animate__fadeInUp">University of Medical Sciences, Ondo City, Ondo State</p>
                 <a class="btn btn-primary" href="https://www.unimed.edu.ng/portal/payment_spgs_app.php">APPLY HERE</a>
+                <a class="btn btn-info" href="https://spgs.unimed.edu.ng/spgslogin.php">APPLICATION LOGIN</a>
                 <a class="btn btn-success" href="https://spgs.unimed.edu.ng/portal_login.php">STUDENT LOGIN</a>
               </div>
             </div>
@@ -132,6 +134,7 @@
                 <h2 class="animate__animated animate__fadeInDown">Welcome to <span>POSTGRADUATE SCHOOL</span></h2>
                 <p class="animate__animated animate__fadeInUp">University of Medical Sciences, Ondo City, Ondo State</p>
                 <a class="btn btn-primary" href="https://www.unimed.edu.ng/portal/payment_spgs_app.php">APPLY HERE</a>
+                <a class="btn btn-info" href="https://spgs.unimed.edu.ng/spgslogin.php">APPLICATION LOGIN</a>
                 <a class="btn btn-success" href="https://spgs.unimed.edu.ng/portal_login.php">STUDENT LOGIN</a>
               </div>
             </div>
@@ -162,34 +165,34 @@
         
               
                   <?php
-                  $api_url = 'https://spgs.unimed.edu.ng/blog/wp-json/wp/v2/posts?_embed';
-                  $response = file_get_contents($api_url);
-$posts = json_decode($response, true);
+           //       $api_url = 'https://spgs.unimed.edu.ng/blog/wp-json/wp/v2/posts?_embed';
+             //     $response = file_get_contents($api_url);
+      //$posts = json_decode($response, true);
 
-echo "<div class='card-container'>";
-foreach ($posts as $post) {
-    $title = $post['title']['rendered'];
-    $link = $post['link'];
-    $content = strip_tags($post['content']['rendered']);
-    $words = implode(' ', array_slice(explode(' ', $content), 0, 20)) . '...';
+//echo "<div class='card-container'>";
+//foreach ($posts as $post) {
+ //   $title = $post['title']['rendered'];
+  //  $link = $post['link'];
+   // $content = strip_tags($post['content']['rendered']);
+   // $words = implode(' ', array_slice(explode(' ', $content), 0, 20)) . '...';
 
     // Get featured image if available
-    $image_url = '';
-    if (isset($post['_embedded']['wp:featuredmedia'][0]['source_url'])) {
-        $image_url = $post['_embedded']['wp:featuredmedia'][0]['source_url'];
-    }
+    //$image_url = '';
+    //if (isset($post['_embedded']['wp:featuredmedia'][0]['source_url'])) {
+      //  $image_url = $post['_embedded']['wp:featuredmedia'][0]['source_url'];
+    //}
 
-    echo "<div class='card'>";
-    if ($image_url) {
-        echo "<img src='$image_url' alt='Post Image' style='width:70%; height:auto; border-radius:8px;'>";
-    }
-    echo "<div class='card-body'>";
-    echo "<h5>$title</h5>";
-    echo "<p>$words</p>";
-    echo "<a href='$link' class='btn' target='_blank'>Read More</a>";
-    echo "</div></div>";
-}
-echo "</div>";
+   // echo "<div class='card'>";
+   // if ($image_url) {
+     //   echo "<img src='$image_url' alt='Post Image' style='width:70%; height:auto; border-radius:8px;'>";
+   // }
+   // echo "<div class='card-body'>";
+   // echo "<h5>$title</h5>";
+   // echo "<p>$words</p>";
+   // echo "<a href='$link' class='btn' target='_blank'>Read More</a>";
+   // echo "</div></div>";
+//}
+//echo "</div>";
 ?>
                
               </div>
@@ -210,10 +213,12 @@ echo "</div>";
             <center>
               <div class="flex-container">
                 <div class="card" style="width:320px;">
-                  <img class="card-img-top" src="pg_docs/unimed_acs_137.jpg" alt="Card image"><div class="card-body">
-                    <h5 class="card-title">Prof.  W</h5>
-                    <h6 class="card-text">FMCPH,MBBS,M.Sc,DOH&S,FFPHM,MD</h6>
+                  <img class="card-img-top" src="pg_docs/prof-adebimpe.jpg" alt="Card image"><div class="card-body">
+                    <h5 class="card-title">Prof, Adebimpe Wasiu Olalekan </h5>
+                    <h6 class="card-text">PhDPH, FWACP, PhDEpid.</h6>
                     <h6 class="card-text">Dean, UNIMED Postgraduate School</h6>
+                    
+
                   </div>
                 </div>
               </div>
@@ -232,7 +237,7 @@ echo "</div>";
                     <li><span class="adv">&rarr;</span>Standalone and highly resourceful School of Public health</li>
                     <li><span class="adv">&rarr;</span>Uninterrupted Academic Calendar</li>
                     <li><span class="adv">&rarr;</span>Blended Learning System</li>
-                    <li><span class="adv">&rarr;</span>2 Weeks didatic physical contact on approved leave</li>
+                    <li><span class="adv">&rarr;</span>Opportunity of PhD for Medical Consultants and Clinicians in the UNIMED/WACS/WACP Collaboration</li>
                     <li><span class="adv">&rarr;</span>Opportunity for specialization</li>
                     <li><span class="adv">&rarr;</span>Multidisciplinary research and community services</li>
                     <li><span class="adv">&rarr;</span>PGD for science, allied and related BSc and HND graduates</li>

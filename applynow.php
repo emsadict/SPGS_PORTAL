@@ -59,84 +59,61 @@
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
 
-        <div class="row no-gutters" style="padding-bottom: 0px; margin-bottom: 0px;">
+        <div class="container" data-aos="fade-up">
+  <div class="row no-gutters" style="padding-bottom: 0px; margin-bottom: 0px;">
+    <div class="col-lg-12 d-flex flex-column justify-content-center about-content" style="padding-bottom: 0px; margin-bottom: 0px;">
+      <div class="section-title" style="padding-bottom: 0px; margin-bottom: 0px;">
+        <h3>Admission to Academic and Professional Postgraduate Programmes of the University of Medical Sciences, Ondo City, for 2025/2026 Academic Session</h3>
+        <p>Applications are invited from qualified candidates for admission into the Postgraduate (Diploma and Degree) Programmes of the University of Medical Sciences, Ondo in the 2025/2026 Academic Session.</p>
+      </div>
+    </div>
 
-          <div class="col-lg-12 d-flex flex-column justify-content-center about-content" style="padding-bottom: 0px; margin-bottom: 0px;">
+    <div class="col-lg-12 d-flex flex-column justify-content-center about-content">
+      <div data-aos="fade-up" data-aos-delay="100" style="padding-bottom: 0px; margin-bottom: 0px;">
+        <h5 class="title">METHOD OF APPLICATION</h5>
+        <p class="description">
+          Eligible candidates should log on to University website <u><a href="http://www.unimed.edu.ng/">www.unimed.edu.ng</a></u>. Then, take the following steps:<br />
+        </p>
+        <p align="left">i. Click on Admission;</p>
+        <p align="left">ii. Click on Postgraduate School;</p>
+        <p align="left">iii. Click on Student's Portal;</p>
+        <p align="left">iv. Click on PAYMENTS to make payment via online payment system using <strong>VISA or MASTER Card.</strong> Note that <strong>VERVE Card is not allowed;</strong></p>
+        <p align="left">v. After payment, Print Payment Receipt</p>
+        <p align="left">vi. Click on <strong>APPLICATION LOGIN on SPGS Portal</strong> with your Payment Transaction ID and Application No to complete the form.</p>
 
-            <div class="section-title" style="padding-bottom: 0px; margin-bottom: 0px;">
-              <h3>Admission to Academic and Professional Postgraduate Programmes of the University of Medical Sciences, Ondo City, for 2023/2024 Academic Session</h3>
-              <p>Applications are invited from qualified candidates for admission into the Postgraduate (Diploma and Degree) Programmes of the University of Medical Sciences, Ondo in the 2023/2024 Academic Session.</p>
-			  
-            </div>
-          </div>
-		  <div class="col-lg-12 d-flex flex-column justify-content-center about-content">
+        <p>ON NO ACCOUNT SHOULD CANDIDATES MAKE PAYMENT TO ANY UNAUTHORISED ACCOUNT. PLEASE SEEK CLARIFICATION IN CASE OF DOUBT</p>
 
-            <div data-aos="fade-up" data-aos-delay="100" style="padding-bottom: 0px; margin-bottom: 0px;">
-			  <h5 class="title">METHOD OF APPLICATION</h5>
-              <p class="description">
-				Eligible candidates should log on to University website<a href="http://www.unimed.edu.ng/"> </a><u><a href="http://www.unimed.edu.ng/">www.unimed.edu.ng</a></u>    <a href="http://www.unimed.edu.ng/"> </a>. Then, take the following steps:<br />
-			  </p>
-			  <p align="left">
-					i. Click on Admission;
-				</p>
-				<p align="left">
-					ii. Click on Postgraduate School;
-				</p>
-				<p align="left">
-					iii. Click on Student's Portal;
-				</p>
-				<p align="left">
-				iv. Click on PAYMENTS to make payment via online payment system using<strong> VISA or MASTER Card.</strong>  Note that<strong> VERVE Card is not allowed; </strong>
-				</p>
-				<p align="left">
-					v. After payment, Print Payment Receipt
-				</p>
-				<p align="left">
-					v. Click on <strong>APPLICATION LOGIN on SPGS Portal</strong> with your Payment Transaction
-					ID and Application No to complete the form.
-				</p>
-				<p>
-					ON NO ACCOUNT SHOULD CANDIDATES MAKE PAYMENT TO ANY UNAUTHORISED ACCOUNT. PLEASE SEEK CLARIFICATION IN CASE OF DOUBT
-				</p>
-				<h6>
-					<u>DISCLAIMER</u>
-				</h6>
-				<p>
-					<strong>Kindly note that the University does NOT have individual/sales agents.</strong>
-					 For the avoidance of doubt, valid and authentic details about admissions
-					into the programmes offered by UNIMED can be obtained only at the
-				university's website<u><a href="http://www.unimed.edu.ng/"> www.unimed.edu.ng</a></u>    <a href="http://www.unimed.edu.ng/"> </a>
-				</p>
-				<p>
-					Kindly note also, that valid payments for purchase of <u>forms</u> can only
-					be done as described above <strong>and NOT into any individual's account. Anyone who deals with any
-						individual and/or makes payment(s) into any individual's account does so at her/his own risk!
-					</strong>
-				</p>
-				<p>
-					<strong>Closing date: 20th, August, 2023</strong>
-				</p>
-				<p>
-					Please be guided!
-				</p>
-				<h6>
-					<a href="pg_docs/20232024 PG ADVERT.pdf" target="_blank">&rArr;<strong>CLICK HERE FOR ADMISSION REQUIREMENTS</strong></a>
-				</h6>
-				<h6>
-					<a href="https://www.unimed.edu.ng/portal/payment_spgs_app.php" target="_blank">&rArr;<strong>CLICK HERE TO APPLY</strong></a>
-				</h6>
-				<p>
-					(SIGNED)
-				</p>
-				<p>
-					Dr. Woleola J. Ekundayo<br>
-					Registrar
-				</p>
-            </div>
+        <h6><u>DISCLAIMER</u></h6>
+        <p>
+          <strong>Kindly note that the University does NOT have individual/sales agents.</strong>
+          For the avoidance of doubt, valid and authentic details about admissions into the programmes offered by UNIMED can be obtained only at the university's website <u><a href="http://www.unimed.edu.ng/">www.unimed.edu.ng</a></u>
+        </p>
+        <p>
+          Kindly note also, that valid payments for purchase of <u>forms</u> can only be done as described above <strong>and NOT into any individual's account. Anyone who deals with any individual and/or makes payment(s) into any individual's account does so at her/his own risk!</strong>
+        </p>
 
-          </div>
+        <p><strong>Closing date: 20th August, 2025</strong></p>
+        <p>Please be guided!</p>
+
+        <h6>
+          <a href="pg_docs/2025-2026_POSTGRADUATE_ADMISSION_ADVERT.pdf" target="_blank">&rArr;<strong>CLICK HERE FOR ADMISSION REQUIREMENTS</strong></a>
+        </h6>
+        <h6>
+          <a href="https://www.unimed.edu.ng/portal/payment_spgs_app.php" target="_blank">&rArr;<strong>CLICK HERE TO APPLY</strong></a>
+        </h6>
+
+        <p>(SIGNED)</p>
+        <p>Mrs. Hellen B. Atunwa<br>Ag. Registrar</p>
+
+        <h5 class="title">LETTER OF ADMISSION (LOA)</h5>
+        <iframe src="pg_docs/2025-2026_POSTGRADUATE_ADMISSION_ADVERT.pdf" width="100%" height="600px" style="border: 1px solid #ccc;"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
 			
-        </div>
+      
 		
       </div>
     </section><!-- End About Us Section -->

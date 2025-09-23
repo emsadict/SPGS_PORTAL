@@ -113,19 +113,15 @@
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="#">
-              <i class="bi bi-circle"></i><span>School Fee</span>
+              <i class="bi bi-circle"></i><span>Check student Email Address</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="bi bi-circle"></i><span>Acceptance fee</span>
+              <i class="bi bi-circle"></i><span>Check student Matric Number</span>
             </a>
           </li>
-          <li>
-            <a href="#">
-              <i class="bi bi-circle"></i><span>Reprint Receipts</span>
-            </a>
-          </li>
+      
            <li>
             <a href="#">
               <i class="bi bi-circle"></i><span>Print Admission Letter</span>

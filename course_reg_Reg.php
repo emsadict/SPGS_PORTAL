@@ -24,29 +24,8 @@
    $programme=$brec1['programme'];
    $dept=$brec1['dept'];
    
-define('IN_CB', true);
-if (version_compare(phpversion(), '5.0.0', '>=') !== true) {
-    exit('Sorry, but you have to run this script with PHP5... You currently have the version <b>' . phpversion() . '</b>.');
-}
 
-if (!function_exists('imagecreate')) {
-    exit('Sorry, make sure you have the GD extension installed before running this script.');
-}
 
-include_once('include/function.php');
-
-// FileName & Extension
-$system_temp_array = explode('/', $_SERVER['PHP_SELF']);
-$filename = $system_temp_array[count($system_temp_array) - 1];
-$system_temp_array2 = explode('.', $filename);
-$availableBarcodes = listBarcodes();
-$barcodeName = findValueFromKey($availableBarcodes, $filename);
-$code = $system_temp_array2[0];
-
-// Check if the code is valid
-if (file_exists('config' . DIRECTORY_SEPARATOR . $code . '.php')) {
-    include_once('config' . DIRECTORY_SEPARATOR . $code . '.php');
-}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -69,7 +48,7 @@ if (file_exists('config' . DIRECTORY_SEPARATOR . $code . '.php')) {
 }
 
 </style>
-<title>2022/2023 SCHOOL OF POSTGRADUATE STUDIES: <?php echo $user; ?></title>
+<title>2024/2025 SCHOOL OF POSTGRADUATE STUDIES: <?php echo $user; ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link type="text/css" rel="stylesheet" href="include/style.css" />
         <link rel="shortcut icon" href="favicon.ico" />
@@ -78,58 +57,13 @@ if (file_exists('config' . DIRECTORY_SEPARATOR . $code . '.php')) {
 </head>
 
 <body bgcolor="#ffffff" class="<?php echo $code; ?>">
-<?php
-$default_value = array();
-$default_value['filetype'] = 'PNG';
-$default_value['dpi'] = 300;
-$default_value['scale'] = isset($defaultScale) ? $defaultScale : 1;
-$default_value['rotation'] = 0;
-$default_value['font_family'] = 'Arial.ttf';
-$default_value['font_size'] = 10;
-$default_value['text'] = strtoupper($brec[1]);
-$default_value['a1'] = '';
-$default_value['a2'] = '';
-$default_value['a3'] = '';
-
-$filetype = $default_value['filetype'];
-$dpi = $default_value['dpi'];
-$scale = $default_value['scale'];
-$rotation = $default_value['rotation'];
-$font_family = $default_value['font_family'];
-$font_size = $default_value['font_size'];
-$text = isset($_POST['text']) ? $_POST['text'] : $default_value['text'];
-
-registerImageKey('filetype', $filetype);
-registerImageKey('dpi', $dpi);
-registerImageKey('scale', $scale);
-registerImageKey('rotation', $rotation);
-registerImageKey('font_family', $font_family);
-registerImageKey('font_size', $font_size);
-registerImageKey('text', stripslashes($text));
-
-// Text in form is different than text sent to the image
-$text = convertText($text);
-?>
 
 <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
     
-<?php
-//define('IN_CB', true);
-//include('include/header.php');
 
-$default_value['checksum'] = '';
-$checksum = isset($_POST['checksum']) ? $_POST['checksum'] : $default_value['checksum'];
-registerImageKey('checksum', $checksum);
-registerImageKey('code', 'BCGcode39');
-
-$characters = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '-', '.', '&nbsp;', '$', '/', '+', '%');
-?>
 
 <?php
 //include('include/footer.php');
-?>
-<?php
-if (!defined('IN_CB')) { die('You are not allowed to access to this page.'); }
 ?>
 
 <div id="waterMark"><img src="images/bglogo.jpg" width="400" height="553"></div>
