@@ -35,6 +35,12 @@
             </a>
           </li>
           <li>
+            <a href="healthlaw.php">
+              <i class="bi bi-circle"></i><span>Health Law and Humanitiess</span>
+            </a>
+          </li>
+          
+          <li>
             <a href="components-buttons.php">
               <i class="bi bi-circle"></i><span>SCIENCES</span>
             </a>
@@ -63,12 +69,44 @@
           
         </ul>
       </li><!-- End Components Nav -->
-
+  <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav1" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Student Detials</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav1" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="studnets.php">
+              <i class="bi bi-circle"></i><span>View/Edit Student Course Reg</span>
+            </a>
+          </li>
+          <li>
+            <a href="studentdata.php">
+              <i class="bi bi-circle"></i><span>View/Edit Student Session & Semester</span>
+            </a>
+          </li>
+          <li>
+            <a href="view_payments.php">
+              <i class="bi bi-circle"></i><span>Payment Record</span>
+            </a>
+          </li>
+          <li> 
+        </ul>
+      </li>
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-journal-text"></i><span>Process Admission</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="dapplicants.php">
+              <i class="bi bi-circle"></i><span>Dowload Applicants</span>
+            </a>
+          </li>
+          <li>
+            <a href="dadmitted.php">
+              <i class="bi bi-circle"></i><span>Download Admitted students Record</span>
+            </a>
+          </li>
           <li>
             <a href="components-tabs.php">
               <i class="bi bi-circle"></i><span>Admit Student</span>
@@ -112,12 +150,13 @@
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="#">
+            <a href="checkmail.php">
               <i class="bi bi-circle"></i><span>Check student Email Address</span>
             </a>
           </li>
+
           <li>
-            <a href="#">
+            <a href="checkmatric.php">
               <i class="bi bi-circle"></i><span>Check student Matric Number</span>
             </a>
           </li>
@@ -125,6 +164,18 @@
            <li>
             <a href="#">
               <i class="bi bi-circle"></i><span>Print Admission Letter</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#charts-nav2" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-bar-chart"></i><span>Student Accounts</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="charts-nav2" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+           <li>
+            <a href="createstu.php">
+              <i class="bi bi-circle"></i><span>Create student Account</span>
             </a>
           </li>
         </ul>

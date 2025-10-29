@@ -25,6 +25,9 @@
 	//	$retinv=retInvoiceP($user,"UNIMED SPGS APPLICATION FEE",$cal[1]);
 		$rec=getRecs("admitted_2022","regno",$user);
 		$student_email_rec=getRecs("student_email","matricno",$user);
+		$recscreen=getRecs("Screened_Candidates_2022","regno",$user);
+		$sessionscreen=$recscreen['session'];
+		$semscreen=$recscreen['semester'];
 		$student_email=$student_email_rec['email'];
 		$email_password=$student_email_rec['dfpassword'];
 	//	echo $email_password;
@@ -438,9 +441,10 @@ $("#suggesstion-box").hide();
 <div class="text-center"><button type="submit" name="update">Print Admission Letter</button></div>
 -->
    <div class="btn-toolbar" align"center">
-
-<center><a href='admnletter_controller.php'target="_blank"><button class='btn btn-primary btn-sm' style='float:center; '>Print Admission Letter</button></a></center>
-
+<?php
+if($sessionscreen='2025/2026' && $semscreen='FIRST')
+echo '<center><a href="admnletter_controller.php" target="_blank"><button class="btn btn-primary btn-sm" style="float:center; ">Print Admission Letter</button></a></center>'
+?>
 <center><a href='spgs_counselingform.php 'target="_blank"><button class='btn btn-info btn-sm' style='float:center; '>Print Student's Counseling Form</button></a></center>
 <center><a href='spgs_libraryform.php'target="_blank"><button class='btn btn-success btn-sm' style='float:center; '>Print Library Form</button></a></center>
 <center><a href='spgs_clearanceform.php 'target="_blank"><button class='btn btn-warning btn-sm' style='float:center; '>Print Student's Admission Clearnace Form</button></a></center>

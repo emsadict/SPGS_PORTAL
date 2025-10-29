@@ -121,16 +121,18 @@ style='font-size:12.0pt;line-height:115%;font-family:"Tahoma",sans-serif'>
 With reference to your application for admission into the <?php echo ucfirst(($programme)); ?> Programme in the
 University of Medical Sciences, Ondo, it is my pleasure to inform you that you
 have been offered provisional admission to pursue an academic programme leading
-to the award of <b><?php echo "$title" ; ?> in  <?php
-if ($dept == 'Surgical Sciences') {
+to the award of <b><?php echo "$programme" ; ?> in  <?php
+if ($dept == 'MPH-Epidemiology and Biostatistics') {
     echo 'MPH in Epidemiology and Biostatistics';
-} elseif ($dept == 'Medical Sciences') {
+} elseif ($dept == 'MPH-Population, Family and Reproductive Health') {
     echo 'Population, Family and Reproductive Health';
-} elseif ($dept == 'Pathology Sciences') {
+} elseif ($dept == 'MPH-Environmental & Occupational Health') {
     echo 'Environmental & Occupational Health';
-} elseif ($dept == 'Dental Sciences') {
+} elseif ($dept == 'MPH-Health Promotion and Behavioural Sciences') {
     echo 'Health Promotion and Behavioural Sciences';
-}  else {
+} elseif ($dept == 'MPH-Health Policy and Management') {
+    echo 'Health Policy and Management';
+} else {
     echo $dept;
 }
 ?>
@@ -146,12 +148,12 @@ Please take note of the following conditions, which are related to your admissio
 
 <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
 style='font-size:12.0pt;line-height:115%;font-family:"Tahoma",sans-serif'>
-(a) you fail to formally accept this offer by paying the non-refundable acceptance fee of <b>eighty
-thousand naira (<s>N</s>80,000.00) only, on or before the 17th October, 2025</b></span></p>
+(a) you fail to formally accept this offer by paying the non-refundable acceptance fee of <b>sixty
+thousand naira (<s>N</s>60,000.00) only, on or before the 17th October, 2025</b></span></p>
 
 <p class=MsoNormal style='margin-left:.5in'><span style='font-size:12.0pt;line-height:115%;font-family:"Tahoma",sans-serif'>
-(b) <b>You are unable to pay</b> School fee of<b> Two
-hundred and eighty-two thousand naira only  (<s>N</s>282,000.00)</b> and other
+(b) <b>You are unable to pay</b> School fee of<b> One
+hundred and eighty thousand naira only  (<s>N</s>180,000.00)</b> and other
 charges before the deadline for payment. 
 All payments MUST be made online through </span><a href="http://www.unimed.edu.ng"><span style='font-size:12.0pt;line-height:115%;font-family:"Tahoma",sans-serif'>www.unimed.edu.ng</span></a></p>
 
@@ -169,20 +171,8 @@ style='font-size:12.0pt;line-height:115%;font-family:"Tahoma",sans-serif'>
 
 <p class=MsoNormal style='text-align:justify'><span style='font-size:12.0pt;
 line-height:115%;font-family:"Tahoma",sans-serif'>
-(2) The programme is on <b>Full-Time basis</b>. The duration of your course is <?php
-if ($dept == 'Surgical Sciences') {
-    echo 'Two(2) Academic Sessions';
-} elseif ($dept == 'Medical Sciences') {
-    echo 'Two(2) Academic Sessions';
-} elseif ($dept == 'Pathology Sciences') {
-    echo 'Two(2) Academic Sessions';
-} elseif ($dept == 'Dental Sciences') {
-    echo 'Two(2) Academic Sessions';
-}  else {
-    echo 'Three(3) Academic Sessions';
-}
-?><b>
-	</b> and other conditions relating to it, are as contained in the
+(2) The programme is on <b>Full-Time basis</b>. The duration of your course is <b>
+	One(1) Academic Session</b> and other conditions relating to it, are as contained in the
 Postgraduate School’s prospectus.</span></p>
 
 <p class=MsoNormal style='text-align:justify'><span style='font-size:12.0pt;

@@ -685,7 +685,7 @@ if (isset($_POST['admit_trigger'])) {
               <select name="prog_duration" class="form-control" required>
                 <option>Three Academic Session</option>
                 <option>Three Academic Semesters</option>
-                <option>One Academic Semester</option>
+                <option>One Academic Session</option>
               </select>
             </div>
 

@@ -86,6 +86,7 @@ function buildTable($result) {
     $table .= '</tbody></table>';
     return $table;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -95,7 +96,7 @@ function buildTable($result) {
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>COURSE Deregistration</title>
+  <title>course registration</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -149,7 +150,7 @@ function buildTable($result) {
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>SEARCH AND De-Register a course</h1>
+      <h1>Search Student couse reg</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="admindashboad.php">Dashboard</a></li>
@@ -208,7 +209,7 @@ function buildTable($result) {
       <select name="faculty" id="faculty" class="form-control" required>
         <option value="">Select Faculty</option>
         <?php
-          $facQuery = mysqli_query($conn, "SELECT DISTINCT faculty FROM course_reg WHERE faculty != ''");
+          $facQuery = mysqli_query($conn, "SELECT DISTINCT faculty FROM screened_candidates_2022 WHERE faculty != ''");
           while ($fac = mysqli_fetch_assoc($facQuery)) {
             echo "<option value='{$fac['faculty']}'>{$fac['faculty']}</option>";
           }

@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include_once("../fun.inc.php");
 
@@ -18,75 +18,39 @@ $role = $adminrec['role'];
 
 $registrationTable = '';
 
-// Handle deletion
-if (isset($_GET['delete_id'])) {
-    $delete_id = intval($_GET['delete_id']);
-    $deleteQuery = mysqli_query($conn, "DELETE FROM course_reg WHERE id = $delete_id");
-    if ($deleteQuery) {
-        echo "<script>alert('Record deleted successfully');</script>";
-    }
+
+function getUnimedConnection() {
+    return mysqli_connect("localhost", "unimed5_spgs", "pay@UN1M3D", "unimed5_unimedportaldb");
 }
 
-// Handle fetch by matric number
-if (isset($_POST['fetch'])) {
-    $matricno = mysqli_real_escape_string($conn, $_POST['matricno']);
-    $query = mysqli_query($conn, "SELECT * FROM course_reg WHERE matricno = '$matricno'");
-    $registrationTable = buildTable($query);
-}
+$conn = getUnimedConnection();
+$message = "";
+$payments = [];
 
-// Handle filter by department
-if (isset($_POST['filter'])) {
-    $faculty = mysqli_real_escape_string($conn, $_POST['faculty']);
-    $dept = mysqli_real_escape_string($conn, $_POST['dept']);
-    $level = mysqli_real_escape_string($conn, $_POST['level']);
-    $session = mysqli_real_escape_string($conn, $_POST['session']);
-
-    $query = mysqli_query($conn, "SELECT * FROM course_reg WHERE faculty='$faculty' AND dept='$dept' AND level='$level' AND session='$session'");
-    $registrationTable = buildTable($query);
-}
-
-// Helper function to build HTML table
-function buildTable($result) {
-    if (mysqli_num_rows($result) == 0) {
-        return "<p>No records found.</p>";
-    }
-
-    $table = '<table class="table table-bordered">';
-    $table .= '<thead><tr>
-        <th>S/N</th><th>Matric No</th><th>Faculty</th><th>Dept</th><th>Level</th><th>Semester</th><th>Session</th><th>Courses</th><th>Actions</th>
-    </tr></thead><tbody>';
-
-    $sn = 1;
-    while ($row = mysqli_fetch_assoc($result)) {
-        $courses = '';
-        for ($i = 1; $i <= 20; $i++) {
-            $courseKey = "course$i";
-            if (!empty($row[$courseKey])) {
-                $courses .= $row[$courseKey] . "<br>";
-            }
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['search'])) {
+    $regno = mysqli_real_escape_string($conn, $_POST['regno']);
+    $query = "SELECT * FROM paymentinvoice WHERE matricno='$regno' ORDER BY refdate DESC";
+    $result = mysqli_query($conn, $query);
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $payments[] = $row;
         }
-
-        $table .= "<tr>
-            <td>{$sn}</td>
-            <td>{$row['matricno']}</td>
-            <td>{$row['faculty']}</td>
-            <td>{$row['dept']}</td>
-            <td>{$row['level']}</td>
-            <td>{$row['semester']}</td>
-            <td>{$row['session']}</td>
-            <td>{$courses}</td>
-            <td>
-                <a href='?delete_id={$row['id']}' onclick=\"return confirm('Are you sure you want to delete this record?');\" class='btn btn-danger btn-sm'>Delete</a>
-                <a href='edit_course.php?id={$row['id']}' class='btn btn-warning btn-sm'>Edit</a>
-            </td>
-        </tr>";
-        $sn++;
+    } else {
+        $message = "<div class='alert alert-warning'>No payment records found for Reg No: <strong>$regno</strong></div>";
     }
+}
 
-    $table .= '</tbody></table>';
-    return $table;
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
+    $id = (int)$_POST['id'];
+    $query = "DELETE FROM paymentinvoice WHERE id=$id";
+    if (mysqli_query($conn, $query)) {
+        $message = "<div class='alert alert-success'>Payment record deleted successfully.</div>";
+    } else {
+        $message = "<div class='alert alert-danger'>Error deleting record: " . mysqli_error($conn) . "</div>";
+    }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -95,7 +59,7 @@ function buildTable($result) {
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>COURSE Deregistration</title>
+  <title>course registration</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -149,12 +113,12 @@ function buildTable($result) {
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>SEARCH AND De-Register a course</h1>
+      <h1>Search Student Payment Records</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="admindashboad.php">Dashboard</a></li>
-          <li class="breadcrumb-item">Student Registration</li>
-          <li class="breadcrumb-item active">Course Registration</li>
+          <li class="breadcrumb-item">Student Details</li>
+          <li class="breadcrumb-item active">Payment Records</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -171,90 +135,79 @@ function buildTable($result) {
 
               
             </div>
-            <form method="POST" action="">
-  <div class="row mb-3">
-    <div class="col-md-6" style="padding-left: 10px;">
-      <label>Enter Matric No</label>
-      <input type="text" name="matricno" class="form-control" required>
-    </div>
-    <div class="col-md-6 d-flex align-items-end">
-      <button type="submit" name="fetch" class="btn btn-primary">Fetch</button>
-    </div>
-  </div>
-</form>
+   <?= $message ?>
 
+    <form method="POST" class="row g-3 mb-4">
+        <div class="col-md-8">
+            <label for="regno" class="form-label">Enter Reg No:</label>
+            <input type="text" class="form-control" name="regno" required>
+        </div>
+        <div class="col-md-4 d-flex align-items-end">
+            <button type="submit" name="search" class="btn btn-primary w-100">Search</button>
+        </div>
+    </form>
           </div>
         </div> <br>
 
 <!--by faculty and dept and Level --->
 
+<h2 class="text-center mb-4">Payment Records</h2>
 
+    
+
+    <?php if (!empty($payments)): ?>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Regno</th>
+                    <th>Transaction ID</th>
+                    <th>Fee Type</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Session</th>
+                    <th>Ref Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($payments as $pay): ?>
+                <tr>
+                    <td><?= $pay['matricno'] ?></td>
+                    <td><?= $pay['transactionid'] ?></td>
+                    <td><?= $pay['feetype'] ?></td>
+                    <td>₦<?= number_format($pay['amount'], 2) ?></td>
+                    <td><?= $pay['status'] ?></td>
+                    <td><?= $pay['session'] ?></td>
+                    <td><?= $pay['refdate'] ?></td>
+                    <td>
+    <?php if ($role === 'SUPERADMIN'): ?>
+        <a href="edit_payment.php?id=<?= $pay['id'] ?>" class="btn btn-sm btn-warning">Edit</a>
+        <form method="POST" style="display:inline-block;" onsubmit="return confirm('Are you sure you want to delete this record?');">
+            <input type="hidden" name="id" value="<?= $pay['id'] ?>">
+            <button type="submit" name="delete" class="btn btn-sm btn-danger">Delete</button>
+        </form>
+    <?php endif; ?>
+</td>
+
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <?php endif; ?>
 
 <!-- --->
 
 <div class="col-lg-12">
 
-          <div class="card">
-            <div class="card-body">
-              <h5 >Search by Department</h5>
-
-              
-            </div>
-<form method="POST" action="">
-  <div class="row" style="padding-left: 10px;">
-    <!-- Faculty Dropdown -->
-    <div class="col-md-3">
-      <label>Faculty</label>
-      <select name="faculty" id="faculty" class="form-control" required>
-        <option value="">Select Faculty</option>
-        <?php
-          $facQuery = mysqli_query($conn, "SELECT DISTINCT faculty FROM course_reg WHERE faculty != ''");
-          while ($fac = mysqli_fetch_assoc($facQuery)) {
-            echo "<option value='{$fac['faculty']}'>{$fac['faculty']}</option>";
-          }
-        ?>
-      </select>
-    </div><br>
-
-    <!-- Department Dropdown -->
-    <div class="col-md-3">
-      <label>Department</label>
-      <select name="dept" id="dept" class="form-control" required>
-        <option value="">Select Department</option>
-      </select>
-    </div><br>
-
-    <!-- Level Dropdown -->
-    <div class="col-md-2">
-      <label>Level</label>
-      <select name="level" id="level" class="form-control" required>
-        <option value="">Select Level</option>
-      </select>
-    </div><br>
-
-    <!-- Session Dropdown -->
-    <div class="col-md-2">
-      <label>Session</label>
-      <select name="session" id="session" class="form-control" required>
-        <option value="">Select Session</option>
-      </select>
-    </div><br><br><br>
-
-    <!-- Submit Button -->
-    <div class="col-md-2 ">
-      <button type="submit" name="filter" class="btn btn-primary">Search</button><br><br><br>
-    </div>
-  </div>
-</form>
-
-
-          </div>
+          
         </div>
          <div class="col-lg-12">
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Default Table</h5>
+              <h5 class="card-title"></h5>
                 <?php echo $registrationTable; ?>
               <!-- Default Table -->
 

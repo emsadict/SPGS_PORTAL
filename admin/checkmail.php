@@ -21,7 +21,7 @@ $registrationTable = '';
 // Handle deletion
 if (isset($_GET['delete_id'])) {
     $delete_id = intval($_GET['delete_id']);
-    $deleteQuery = mysqli_query($conn, "DELETE FROM course_reg WHERE id = $delete_id");
+    $deleteQuery = mysqli_query($conn, "DELETE FROM student_email WHERE id = $delete_id");
     if ($deleteQuery) {
         echo "<script>alert('Record deleted successfully');</script>";
     }
@@ -30,18 +30,17 @@ if (isset($_GET['delete_id'])) {
 // Handle fetch by matric number
 if (isset($_POST['fetch'])) {
     $matricno = mysqli_real_escape_string($conn, $_POST['matricno']);
-    $query = mysqli_query($conn, "SELECT * FROM course_reg WHERE matricno = '$matricno'");
+    $query = mysqli_query($conn, "SELECT * FROM student_email WHERE regno = '$matricno'");
     $registrationTable = buildTable($query);
 }
 
 // Handle filter by department
 if (isset($_POST['filter'])) {
-    $faculty = mysqli_real_escape_string($conn, $_POST['faculty']);
-    $dept = mysqli_real_escape_string($conn, $_POST['dept']);
-    $level = mysqli_real_escape_string($conn, $_POST['level']);
-    $session = mysqli_real_escape_string($conn, $_POST['session']);
+    $faculty = mysqli_real_escape_string($conn, $_POST['faculty'] ?? '');
+    $dept = mysqli_real_escape_string($conn, $_POST['dept'] ?? '');
+    $programme = mysqli_real_escape_string($conn, $_POST['programme'] ?? '');
 
-    $query = mysqli_query($conn, "SELECT * FROM course_reg WHERE faculty='$faculty' AND dept='$dept' AND level='$level' AND session='$session'");
+    $query = mysqli_query($conn, "SELECT * FROM student_email WHERE faculty='$faculty' AND dept='$dept' AND programme='$programme'");
     $registrationTable = buildTable($query);
 }
 
@@ -53,39 +52,49 @@ function buildTable($result) {
 
     $table = '<table class="table table-bordered">';
     $table .= '<thead><tr>
-        <th>S/N</th><th>Matric No</th><th>Faculty</th><th>Dept</th><th>Level</th><th>Semester</th><th>Session</th><th>Courses</th><th>Actions</th>
+        <th>S/N</th>
+        <th>Matric No</th>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Faculty</th>
+        <th>Dept</th>
+        <th>Programme</th>
+        <th>DefaultPass</th>
+        <th>Actions</th>
     </tr></thead><tbody>';
 
     $sn = 1;
     while ($row = mysqli_fetch_assoc($result)) {
-        $courses = '';
-        for ($i = 1; $i <= 20; $i++) {
-            $courseKey = "course$i";
-            if (!empty($row[$courseKey])) {
-                $courses .= $row[$courseKey] . "<br>";
-            }
-        }
+        $fullName = $row['Surname'] . ' ' . $row['onames'];
 
         $table .= "<tr>
             <td>{$sn}</td>
             <td>{$row['matricno']}</td>
+            <td>{$fullName}</td>
+            <td>{$row['email']}</td>
+            <td>{$row['phone']}</td>
             <td>{$row['faculty']}</td>
             <td>{$row['dept']}</td>
-            <td>{$row['level']}</td>
-            <td>{$row['semester']}</td>
-            <td>{$row['session']}</td>
-            <td>{$courses}</td>
-            <td>
+            <td>{$row['programme']}</td>
+            <td>{$row['dfpassword']}</td>
+            <td>";
+
+        // Role-based action buttons
+        if ($GLOBALS['role'] === 'SUPERADMIN') {
+            $table .= "
                 <a href='?delete_id={$row['id']}' onclick=\"return confirm('Are you sure you want to delete this record?');\" class='btn btn-danger btn-sm'>Delete</a>
-                <a href='edit_course.php?id={$row['id']}' class='btn btn-warning btn-sm'>Edit</a>
-            </td>
-        </tr>";
+                <a href='edit_course.php?id={$row['id']}' class='btn btn-warning btn-sm'>Edit</a>";
+        }
+
+        $table .= "</td></tr>";
         $sn++;
     }
 
     $table .= '</tbody></table>';
     return $table;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -95,7 +104,7 @@ function buildTable($result) {
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>COURSE Deregistration</title>
+  <title>Matric number</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -149,7 +158,7 @@ function buildTable($result) {
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>SEARCH AND De-Register a course</h1>
+      <h1>Search Student Matric Number</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="admindashboad.php">Dashboard</a></li>
@@ -208,7 +217,7 @@ function buildTable($result) {
       <select name="faculty" id="faculty" class="form-control" required>
         <option value="">Select Faculty</option>
         <?php
-          $facQuery = mysqli_query($conn, "SELECT DISTINCT faculty FROM course_reg WHERE faculty != ''");
+          $facQuery = mysqli_query($conn, "SELECT DISTINCT faculty FROM screened_candidates_2022 WHERE faculty != ''");
           while ($fac = mysqli_fetch_assoc($facQuery)) {
             echo "<option value='{$fac['faculty']}'>{$fac['faculty']}</option>";
           }
