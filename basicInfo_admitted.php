@@ -419,55 +419,119 @@ $("#suggesstion-box").hide();
 
   <main id="main">
 
-    <!-- ======= Contact Us Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Student Biodata Information Page</h2>
-          <h4 style="color:red;"><?php  
-          
-          $result = resultnew("SELECT * FROM student_email WHERE regno='$regno'");
-        if (mysqli_num_rows($result) > 0) 
-          {
-          echo "Your student email is: $student_email </br>";  
-          echo "Your default Password is: $email_password ";  
-          }
-          
-          ?></h4>
-         
+  <!-- ======= Contact Us Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+		<hr>
+<div class="container my-3">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <ul class="nav nav-pills justify-content-center flex-wrap">
+        <li class="nav-item m-1">
+          <a class="btn btn-primary" href="#">Orientation</a>
+        </li>
+        <li class="nav-item m-1">
+          <a class="btn btn-primary" href="#">Bursary</a>
+        </li>
+        <li class="nav-item m-1">
+          <a class="btn btn-primary" href="biodata.php">Registry</a>
+        </li>
+        <li class="nav-item m-1">
+          <a class="btn btn-primary" href="courseregistration.php">My Course</a>
+        </li>
+        <li class="nav-item m-1">
+          <a class="btn btn-primary" href="https://elearning.unimed.edu.ng/" target="_blank">My Learning Space</a>
+        </li>
+        <li class="nav-item m-1">
+          <a class="btn btn-primary" href="https://library.unimed.edu.ng" target="_blank">Library</a>
+        </li>
+		
+        <li class="nav-item m-1">
+          <a class="btn btn-primary" href="mailto:ict@unimed.edu.ng" target="_blank">Support</a>
+        </li>
+		<li class="nav-item m-1">
+        <?php
+		
+		if(searchRecord("resulttable","matricno",$_SESSION['spgs_auth'][1])!=0 && searchRecord("resulttable ","matricno",$_SESSION['spgs_auth'][1])!=0){
+				echo '<li><a class="btn btn-primary " href="resultChecker.php" target="_blank">Check Result</a></li>';
+		}
+			?>
+		</li>
+      </ul>
+            </div>
+          </div>
         </div>
-        <!--
-<div class="text-center"><button type="submit" name="update">Print Admission Letter</button></div>
--->
-   <div class="btn-toolbar" align"center">
-<?php
-if($sessionscreen='2025/2026' && $semscreen='FIRST')
-echo '<center><a href="admnletter_controller.php" target="_blank"><button class="btn btn-primary btn-sm" style="float:center; ">Print Admission Letter</button></a></center>'
-?>
-<center><a href='spgs_counselingform.php 'target="_blank"><button class='btn btn-info btn-sm' style='float:center; '>Print Student's Counseling Form</button></a></center>
-<center><a href='spgs_libraryform.php'target="_blank"><button class='btn btn-success btn-sm' style='float:center; '>Print Library Form</button></a></center>
-<center><a href='spgs_clearanceform.php 'target="_blank"><button class='btn btn-warning btn-sm' style='float:center; '>Print Student's Admission Clearnace Form</button></a></center>
-<?php
-$rec=getRecs("Screened_Candidates_2022","regno",$user);
-$semester=$rec['semester'];
-$semester =strtoupper("$semester");
-//echo $semester ;
-if ($semester=='SECOND' || $semester=='THRID')
-echo "<center><a href='student_forms.php 'target='_blank'><button class='btn btn-primary btn-sm' style='float:center; '>Student Form</button></a></center>";
+
+</div>
+<hr>
+      <br><br>
+      <div class="row justify-content-center">
+        
+        <!-- Left column (2) -->
+        
+		 <div class="col-lg-3 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="400">
+  <div class="php-email-form text-center">
+
+    <!-- Passport Photograph -->
+    <div class="mb-3">
+      <img src="<?php echo 'pass/'.$rec[13]; ?>" alt="Passport Photograph" class="img-fluid rounded" style="max-width:150px;">
+	  
+    </div>
+
+    <?php
+	$rec2=getRecs("screened_candidates_2022","regno",$user);
+    echo '
+      <div class="row text-start">
+        <div class="col-12 mb-2">
+          <b>APPLICATION NO:</b> '.$user.'
+          <hr>
+        </div>
+        <div class="col-12 mb-2">
+          <b>SURNAME:</b> '.$rec2['surname'].'
+          <hr>
+        </div>
+        <div class="col-12 mb-2">
+          OTHER NAME(S): '.$rec2['onames'].'
+          <hr>
+        </div>
+        <div class="col-12 mb-2">
+          GENDER: '.(($rec2[4]=="M" || $rec2[4]=="Male") ? "Male" : "Female").'
+          <hr>
+        </div>
+        <div class="col-12 mb-2">
+          FACULTY: '.$rec2['faculty'].'
+          <hr>
+        </div>
+        <div class="col-12 mb-2">
+          DEPARTMENT/OPTION: '.$rec2['dept'].'
+          <hr>
+        </div>
+        <div class="col-12 mb-2">
+          PROGRAMME: '.$rec2['programme'].'
+          <hr>
+        </div>
+        <div class="col-12 mb-2">
+          PROGRAMME TYPE: '.$rec2['title'].'
+          <hr>
+        </div>
+		<div class="col-12 mb-2">
+          Session: '.$rec2['session'].'
+          <hr>
+        </div>
+		<div class="col-12 mb-2">
+          SEMESTER: '.$rec2['semester'].'
+          <hr>
+        </div>
+      </div>
+    ';
+    ?>
+  </div>
+</div>
 
 
-?>
-<!--
-<form action="resultForm_pg.php" method="post" target="_blank" enctype="multipart/form-data">
-            <input type="submit" name="" class='btn btn-danger btn-sm' Value="Check Result"  size="25">
-</form>
-
-<center><a href='resultForm_pg.php' target="_blank"><button  class='btn btn-danger btn-sm' style='float:center; '>Check Result</button></a></center>
--->
-</div></br></br>
-        <div class="row">
-          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
+        <!-- Middle column (6) -->
+        <div class="col-lg-7 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="300">
+          
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data" method="post" name="formcheck" onsubmit="return formCheck(this);" role="form" class="php-email-form">
 			<?php
 				if(isset($message)){
@@ -484,186 +548,155 @@ echo "<center><a href='student_forms.php 'target='_blank'><button class='btn btn
 			<?php 
 				$rec=getRecs("admitted_2022","regno",$user);
 				
-		//		$ref1=getRecs2("spgs_referees",array('regno'=>$user,'refno'=>1),0,1);
-		//		$ref2=getRecs2("spgs_referees",array('regno'=>$user,'refno'=>2),0,1);
 				echo '
               <div class="row">
-                <div class="col-lg-3 form-group">
-					<label for="regno">APPLICATION NO.:</label>
-                  <input type="text" name="regno" name="regno" value="'.$user.'" class="form-control" id="regno" placeholder="APPLICATION NO" readonly>
-                </div>
-                <div class="col-lg-3 form-group">
-					<label for="surname">SURNAME.:</label>
-                  <input type="text" class="form-control" name="surname" id="surname" value="'.$rec['surname'].'" placeholder="YOUR SURNAME" required>
-                </div>
-				<div class="col-lg-3 form-group">
-					<label for="onames">OTHER NAME(S).:</label>
-                  <input type="text" class="form-control" value="'.$rec['onames'].'" name="onames" id="onames" placeholder="OTHER NAME(S)" required>
-                </div>
-				<div class="col-lg-3 form-group">
-					<label for="sex">GENDER.:</label>
-					<select class="form-control" required name="sex" id="sex">
-					<option "">--SELECT--</option>
-					<option value="Male" '; if($rec[4]=="M" || $rec[4]=="Male"){ echo 'selected="selected"';} echo '>Male</option>
-                    <option value="Female" '; if($rec[4]=="F" || $rec[4]=="Female"){ echo 'selected="selected"';} echo '>Female</option>
-					</select>
-                </div>
-              </div>
-			  <div class="row">
-                <div class="col-lg-3 form-group">
-					<label for="sname">DATE OF BIRTH.:</label>
-                  <input type="date" name="dob" class="form-control" id="dob" value="'.$rec['dob'].'" placeholder="Date of Birth" >
-                </div>
-                <div class="col-lg-3 form-group">
-					<label for="nation">NATIONALITY.:</label>
-                  	<select class="form-control" required name="nation" id="nation">
-					<option "">--SELECT--</option>
-					<option '; if($rec[7]=="NIGERIAN"){ echo 'selected="selected"';} echo '>NIGERIAN</option>
-                    <option '; if($rec[7]=="OTHERS"){ echo 'selected="selected"';} echo '>OTHERS</option>
-					</select>
-                </div>
-				<div class="col-lg-3 form-group">
-					<label for="country">STATE OF ORIGIN.:</label>
-                  	<select name="country" id="country-list" class="form-control demoInputBox" onChange="getState(this.value);">
-						<option></option>';
-				?>
-						<?php
-						if($rec[8]!=""){
-						 echo '<option selected="selected" value="'.getStateID($rec[8]).'">'.$rec[8].'</option>';	
-						}
-						foreach($results as $country) {
-						?>
-						<option value="<?php echo $country["state_id"]; ?>"><?php echo $country["state"]; ?></option>
-						<?php
-						}
-						?>
-				<?php echo '</select>
-                </div>
-				<div class="col-lg-3 form-group">
-					<label for="state">LOCAL GOVT.:</label>
-                  	<select name="state" id="state-list" class="form-control demoInputBox">
-						<option></option>';
-						selectLG($rec[8],$rec[9]);
-					echo '</select>
-                </div>
-              </div>
-			  <div class="row">
-				<div class="col-lg-3 form-group">
-					<label for="maritalstatus">MARITAL STATUS.:</label>
-                  	<select class="form-control" required name="maritalstatus" id="maritalstatus">
-					<option "">--SELECT--</option>
-					<option '; if($rec['maritalstatus']=="Single"){ echo 'selected="selected"';} echo '>Single</option>
-                    <option '; if($rec['maritalstatus']=="Married"){ echo 'selected="selected"';} echo '>Married</option>
-                    <option '; if($rec['maritalstatus']=="Divorce"){ echo 'selected="selected"';} echo '>Divorce</option>
-					</select>
-                </div>
-                <div class="col-lg-3 form-group">
-					<label for="email">EMAIL.:</label>
-                  <input type="email" name="email" class="form-control" id="email" value="'.$rec['email'].'" placeholder="E-MAIL" required>
-                </div>
-                
-				<div class="col-lg-3 form-group">
-					<label for="phone">PHONE NO.:</label>
-                  	<input type="text" class="form-control" name="phone" id="phone" value="'.$rec['phoneno'].'" placeholder="PHONE NO.:" required>
-                </div>
-				<div class="col-lg-3 form-group">
-					<label for="passport">PASSPORT.:</label>
-					<input type="hidden" name="passport2" value="'.$rec['passport'].'"  />
-					<input type="file" name="passport" class="form-control" accept="image/jpg" id="passport" />
-                </div>
-              </div>
-              <div class="form-group">
-				<label for="address">CURRENT ADDRESS.:</label>
-                <input type="text" class="form-control" name="address" id="address" value="'.$rec['address'].'" placeholder="ADDRESS" required>
-              </div>
-			  <div class="row">
-				<div class="col-lg-3 form-group">
-					<label for="faculty">FACULTY.:</label>
-                  	<select name="faculty" id="faculty-list" class="form-control demoInputBox" onChange="getDept(this.value);" >
-                <option></option>';
+                <div class="container my-4">
+  <h4 class="mb-3">Academic Calendar</h4>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead class="table-success">
+        <tr>
+          <th>S/N</th>
+          <th>PERIOD / ACTIVITY</th>
+          <th>FROM</th>
+          <th>TO</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 1ST SEMESTER -->
+        <tr><td colspan="4" class="fw-bold text-center bg-light">1ST SEMESTER</td></tr>
+        <tr><td>1</td><td>Resumption/Registration</td><td>27th October, 2025</td><td>7th November, 2025</td></tr>
+        <tr><td>2</td><td>Lectures Begin</td><td>10th November, 2025</td><td></td></tr>
+        <tr><td>3</td><td>Christmas Break</td><td>23rd December, 2025</td><td>5th January, 2026</td></tr>
+        <tr><td>4</td><td>Late Registration</td><td>12th January, 2026</td><td>17th January, 2026</td></tr>
+        <tr><td>5</td><td>End of Lectures</td><td></td><td>30th January, 2026</td></tr>
+        <tr><td>6</td><td>Revision</td><td>2nd February, 2026</td><td>6th February, 2026</td></tr>
+        <tr><td>7</td><td>Examinations</td><td>9th February, 2026</td><td>20th February, 2026</td></tr>
+        <tr><td>8</td><td>Marking and Processing of Results</td><td>23rd February, 2026</td><td>6th March, 2026</td></tr>
+        <tr><td>9</td><td>Consideration of Results by Faculties/Departmental Board</td><td>9th March, 2026</td><td>13th March, 2026</td></tr>
+        <tr><td>10</td><td>PG School Discourse</td><td>12th March, 2026</td><td></td></tr>
+
+        <!-- 2ND SEMESTER -->
+        <tr><td colspan="4" class="fw-bold text-center bg-light">2ND SEMESTER</td></tr>
+        <tr><td>11</td><td>Resumption/Registration</td><td>6th April, 2026</td><td>10th April, 2026</td></tr>
+        <tr><td>12</td><td>Lectures</td><td>13th April, 2026</td><td>26th June, 2026</td></tr>
+        <tr><td>13</td><td>PG School Colloquium</td><td>20th April, 2026</td><td></td></tr>
+        <tr><td>14</td><td>Revision</td><td>29th June, 2026</td><td>3rd July, 2026</td></tr>
+        <tr><td>15</td><td>Examinations</td><td>6th July, 2026</td><td>17th July, 2026</td></tr>
+        <tr><td>16</td><td>Marking and Processing of Results</td><td>20th July, 2026</td><td>31st July, 2026</td></tr>
+        <tr><td>17</td><td>Consideration of Results by Faculties/Departmental Board</td><td>3rd August, 2026</td><td>7th August, 2026</td></tr>
+        <tr><td>18</td><td>Constitution of UNIMED PG Alumni</td><td>6th August, 2026</td><td></td></tr>
+
+        <!-- 3RD SEMESTER -->
+        <tr><td colspan="4" class="fw-bold text-center bg-light">3RD SEMESTER (For Depts. running three Semesters/year Masters programme)</td></tr>
+        <tr><td>19</td><td>Resumption/Registration</td><td>24th August, 2026</td><td>4th September, 2026</td></tr>
+        <tr><td>20</td><td>Lectures</td><td>7th September, 2026</td><td>13th November, 2026</td></tr>
+        <tr><td>21</td><td>Examinations</td><td>16th November, 2026</td><td>27th November, 2026</td></tr>
+        <tr><td>22</td><td>Marking and Processing of Results</td><td>30th November, 2026</td><td>4th December, 2026</td></tr>
+        <tr><td>23</td><td>Consideration of Results by Faculties/Departmental Board</td><td>7th December, 2026</td><td>11th December, 2026</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="mt-3"><em>Note: For Departments running 18 months Masters programme, their 3rd semester is the 1st semester of 2026/2027 academic session, starting November 2026.</em></p>
+</div>
+
 				
-				if($fac!=""){
-				 echo '<option selected="selected" value="'.getFacultyID($fac).'">'.$fac.'</option>';	
-				}
-                foreach($results2 as $faculties) {
-                	echo '<option value="'.$faculties["faculty_id"].'">'.$faculties["faculty"].'</option>';  
-                }
-                 echo '</select>
-                </div>
-                <div class="col-lg-3 form-group">
-					<label for="faculty">DEPARTMENT/OPTION.:</label>
-                  	<select name="dept" id="dept-list" class=" form-control demoInputBox">
-					<option>'.$rec['dept'].'</option>';
-						
-					echo '</select>
-                </div>
-                
-				<div class="col-lg-3 form-group">
-					<label for="programme">PROGRAMME.:</label>
-                  	<select class="form-control" required name="programme" id="programme">
-						<option value="">--SELECT--</option>
-						<option selected>'.$prog.'</option>
-					</select>
-          </div>
-
-				<div class="col-lg-3 form-group">
-					<label for="title">PROGRAMME TYPE.:</label>
-          <select class="form-control" required name="title" id="title">
-						<option value="">--SELECT--</option>
-						<option selected>'.$title.'</option>
-					</select>
-        </div>
-
-			  <div class="form-group" style="text-align: center; font-weight: bold;">
-				  <br />
-				NEXT OF KIN INFORMATION
-              </div>
-			  
-			  <div class="row">
-          <div class="col-lg-3 form-group">
-					<label for="noks">SURNAME.:</label>
-                  <input type="text" name="noksurname" class="form-control" id="noksurname" value="'.$rec['noksurname'].'" placeholder="NOK SURNAME" required>
-          </div>
-                
-				<div class="col-lg-3 form-group">
-					<label for="nokoname">OTHER NAME(S).:</label>
-                  	<input type="text" class="form-control" name="nokoname" id="nokoname" value="'.$rec['nokoname'].'" placeholder="NOK OTHER NAME(S).:" required>
-                </div>
-				<div class="col-lg-3 form-group">
-					<label for="noktel">PHONE NO.:</label>
-           <input type="text" class="form-control" value="'.$rec['noktel'].'" name="noktel" placeholder="NOK PHONE NO.:" id="noktel" required>
-        </div>
 				
-				<div class="col-lg-3 form-group">
-					<label for="nokemail">EMAIL.:</label>
-          <input type="email" class="form-control" value="'.$rec['nokemail'].'" name="nokemail" id="nokemail" placeholder="NOK EMAIL" required>
-          </div>
-          <div class="col-lg-3 form-group">
-					<label for="nokemail">RELATIONSHIP.:</label>
-          <input type="text" class="form-control" value="'.$rec['nokrel'].'" name="nokrel" id="nokrekl" placeholder="NOK EMAIL" required>
-          </div>
-
-
-          <div class="col-lg-9 form-group">
-					<label for="nokadd">ADDRESS.:</label>
-          <input type="text" class="form-control" value="'.$rec['nokadd'].'" name="nokadd" id="nokadd" placeholder="NOK ADDRESS" required>
-          </div>
-
-         </div>
-
-              </div>
-              ';
+              </div>';
 			?>
-              <div class="text-center"><button type="submit" name="update" onclick="return confirm('Kindly review your record, Are you sure you want to Submit?')">Update Biodata</button></div>
+            <!--  <div class="text-center"><button type="submit" name="update" onclick="return confirm('Kindly review your record, Are you sure you want to Submit?')">Update Biodata</button>
+			</div>  -->
             </form>
-          </div>
-
+          
         </div>
+
+        <!-- Right column (2) -->
+<div class="col-lg-2 col-md-4 col-sm-12" data-aos="fade-up" data-aos-delay="200">
+          <div class="php-email-form  d-flex flex-column p-3 border rounded shadow-sm">
+            <div class="flex-grow-1 d-flex flex-column justify-content-center">
+            
+			   <div class="btn-toolbar d-flex flex-column gap-2 justify-content-center align-items-center">
+<?php
+$recscreen = getRecs("Screened_Candidates_2022","regno",$user);
+$sessionscreen = $recscreen['session'];
+$semscreen = $recscreen['semester'];
+
+//echo $sessionscreen;
+
+if ($sessionscreen == '2025/2026' && $semscreen == 'FIRST') {
+echo '<a href="admnletter_controller.php" target="_blank" class="btn btn-primary btn-sm w-100 mb-1">Print Admission Letter</a>';
+    echo '<a href="spgs_counselingform.php" target="_blank" class="btn btn-info btn-sm w-100 mb-1">Print Students Counseling Form</a>';
+    echo '<a href="spgs_libraryform.php" target="_blank" class="btn btn-primary btn-sm w-100 mb-1">Print Library Form</a>';
+    echo '<a href="spgs_clearanceform.php" target="_blank" class="btn btn-info btn-sm w-100 mb-1">Print Students Admission Clearance Form</a>'; 
+}
+?>
+
+
+<?php
+$rec=getRecs("Screened_Candidates_2022","regno",$user);
+$semester=$rec['semester'];
+$semester =strtoupper("$semester");
+//echo $semester ;
+if ($semester=='SECOND' || $semester=='THRID')
+echo "<a href='student_forms.php' target='_blank' class='btn btn-primary btn-sm w-100'>Student Form</a>";
+
+
+?>
+
+<div class="section-title text-center mt-3">
+	<hr class="w-75 mx-auto">
+  
+  <h6 class="text-danger mb-0">
+    <?php  
+    // Run query
+	$rec=getRecs("Screened_Candidates_2022","regno",$user);
+	$regno = $recscreen['regno'];
+    $result = resultnew("SELECT * FROM student_email WHERE regno='$regno'");
+    
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $student_email  = !empty($row['email']) ? $row['email'] : 'N/A';
+        $email_password = !empty($row['dfpassword']) ? $row['dfpassword'] : 'N/A';
+
+        echo "Email is: $student_email <br>";  
+        echo "default Password is: $email_password";  
+    } else {
+        echo "email is: N/A <br>";  
+        echo "default Password is: N/A";  
+    }
+    ?>
+  </h6>
+  <hr>
+  <?php  
+    // Run query
+    $result1 = resultnew("SELECT * FROM student_internetlogin   WHERE regno='$regno'");
+    
+    if (mysqli_num_rows($result1) > 0) {
+        $row1 = mysqli_fetch_assoc($result1);
+        $student_email1  = !empty($row1['username']) ? $row1['username'] : 'N/A';
+        $email_password1 = !empty($row1['password']) ? $row1['password'] : 'N/A';
+
+        echo "Your student internet login is: $student_email1 <br>";  
+        echo "Your Password is: $email_password1";  
+    } else {
+        echo "Your student internet login is: N/A <br>";  
+        echo "Your Password is: N/A";  
+    }
+    ?>
+</div>
+
+          </div>
+        </div>
+
+
 
       </div>
-    </section><!-- End Contact Us Section -->
+    </div>
+  </section><!-- End Contact Us Section -->
 
-  </main><!-- End #main -->
+</main>
+<!-- End #main -->
 
   <?php require('footer.inc.php'); ?>
 
